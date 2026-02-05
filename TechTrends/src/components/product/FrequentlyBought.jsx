@@ -14,7 +14,7 @@ export default function FrequentlyBought() {
           >
             <div className="h-20 bg-background-dark rounded-lg mb-3" />
 
-            <p className="font-bold text-sm">Accessory {i}</p>
+            <p className="font-bold text-sm text-text-secondary">Accessory {i}</p>
 
             <p className="text-text-muted-light text-xs">Accessories</p>
           </div>
