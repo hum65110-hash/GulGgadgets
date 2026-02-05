@@ -3,6 +3,11 @@
     {
       "src": "/(.*)",
       "dest": "/index.html"
-    }
+    },
+    {
+  "rewrites": [
+    { "source": "/((?!assets|favicon.ico).*)", "destination": "/index.html" }
+  ]
+}
   ]
 }
