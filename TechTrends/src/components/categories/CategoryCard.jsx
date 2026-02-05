@@ -1,6 +1,9 @@
-export default function CategoryCard({ title, image, productCount, icon }) {
+export default function CategoryCard({ title, image, productCount, icon, link }) {
   return (
-    <div className="group flex flex-col rounded-xl overflow-hidden bg-surface-light dark:bg-surface-dark border border-border-dark hover:border-primary hover:-translate-y-1 hover:shadow-glow transition cursor-pointer">
+    <a 
+      href={link}
+      className="group flex flex-col rounded-xl overflow-hidden bg-surface-light dark:bg-surface-dark border border-border-dark hover:border-primary hover:-translate-y-1 hover:shadow-glow transition cursor-pointer"
+    >
 
       <div className="relative aspect-[4/3] bg-background-dark overflow-hidden">
         
@@ -42,6 +45,6 @@ export default function CategoryCard({ title, image, productCount, icon }) {
 
         </div>
       </div>
-    </div>
+    </a>
   );
 }

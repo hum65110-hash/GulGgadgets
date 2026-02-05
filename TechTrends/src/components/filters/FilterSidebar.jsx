@@ -13,7 +13,7 @@ export default function FilterSidebar() {
       <div className="sticky top-24 space-y-6">
 
         <div>
-          <h2 className="text-lg font-bold">Filters</h2>
+          <h2 className="text-lg font-bold text-text-secondary">Filters</h2>
           <p className="text-text-secondary text-xs">Refine Selection</p>
         </div>
 
@@ -36,7 +36,7 @@ export default function FilterSidebar() {
                 >
                   {f.icon}
                 </span>
-                <span>{f.label}</span>
+                <span className="text-text-secondary">{f.label}</span>
               </span>
 
               <span className="material-symbols-outlined text-text-secondary">
@@ -48,7 +48,7 @@ export default function FilterSidebar() {
 
         {/* Price */}
         <div className="border-t border-surface-dark pt-4">
-          <h3 className="text-sm font-bold mb-3">Price Range</h3>
+          <h3 className="text-sm font-bold mb-3 text-text-secondary">Price Range</h3>
 
           <input
             type="range"
