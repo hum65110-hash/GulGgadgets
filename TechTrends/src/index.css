@@ -1,0 +1,217 @@
+
+
+/* Import Google Fonts and Icons */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
+@import "tailwindcss";
+
+/* ============================= */
+/* THEME VARIABLES */
+/* ============================= */
+
+@theme {
+  /* Colors */
+  --color-primary: #25c0f4;
+
+  --color-background-light: #f5f8f8;
+  --color-background-dark: #101e22;
+
+  --color-surface-dark: #182d34;
+  --color-border-dark: #223f49;
+
+  /* Typography */
+  --font-family-display: "Space Grotesk", sans-serif;
+  --font-family-sans: "Space Grotesk", sans-serif;
+
+  /* Shadows */
+  --shadow-glow: 0 0 15px rgba(37, 192, 244, 0.15);
+  --shadow-glow-hover: 0 0 25px rgba(37, 192, 244, 0.3);
+
+  /* Border Radius */
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* NEW PAGE COLORS */
+
+--color-primary: #1392ec; /* replaces old if page-specific */
+
+--color-background-light: #f6f7f8; /* slightly different */
+
+--color-background-dark: #111b22;
+
+--color-surface-dark: #233948;
+
+--color-text-secondary: #92b2c9;
+
+/* Tag border color used in specs */
+--color-steel-blue: #354e60;
+
+/* Sale badge */
+--color-sale-red: #ff453a;
+
+
+/* --- Product Detail Page Additions --- */
+
+/* Light UI surfaces */
+--color-surface-light: #ffffff;
+--color-soft-gray: #f0f2f4;
+
+/* Dark alt backgrounds */
+--color-deep-navy: #0d151c;
+
+/* Neutral text light mode */
+--color-text-dark: #111418;
+--color-text-muted-light: #637588;
+
+/* Accent yellows for rating */
+--color-rating-gold: #f5c518;
+
+/* Borders / dividers */
+--color-divider-light: #e5e7eb;
+
+/* Color swatches */
+--color-midnight-blue: #1e3a8a;
+--color-cloud-silver: #e5e5e5;
+--color-phantom-black: #111111;
+
+/* Hover tile */
+--color-hover-surface: #2f4a5d;
+
+
+/* --- Category Overview Page Additions --- */
+
+/* Alt dark surface used in cards */
+--color-surface-darker: #192833;
+
+/* Dark borders */
+--color-border-blue-dark: #325167;
+
+/* Purple badge */
+--color-badge-purple: #7c3aed;
+
+/* Muted slate for separators */
+--color-slate-muted: #587588;
+
+/* --- About Page Additions --- */
+
+/* Hero overlay text */
+--color-gray-soft: #e5e7eb;
+--color-gray-light: #d1d5db;
+
+/* Accent muted blues */
+--color-blue-soft: #eff6ff;
+
+/* Dark feature backgrounds */
+--color-surface-dark-alt: #192833;
+
+/* Footer-adjacent dark (used in content blocks) */
+--color-ink-dark: #0b1216;
+
+/* Transparent white overlays */
+--color-glass-white: rgba(255, 255, 255, 0.05);
+--color-glass-border: rgba(255, 255, 255, 0.1);
+
+/* Map overlay gradients */
+--color-map-overlay: #101a22;
+
+/* --- Help / FAQ Page Additions --- */
+
+/* Dark gradient surfaces */
+--color-surface-gradient-start: #111b22;
+--color-surface-gradient-end: #192833;
+
+/* Dark button hover */
+--color-surface-hover-dark: #2c4658;
+
+/* Soft blue glow shadow */
+--shadow-blue-soft: 0 10px 25px rgba(59, 130, 246, 0.2);
+
+/* FAQ border light */
+--color-border-faq: #e5e7eb;
+
+/* Slate muted dark variant */
+--color-slate-muted-dark: #587588;
+
+/* --- Checkout Page Additions --- */
+
+/* Checkout surfaces */
+--color-checkout-panel: #192833;
+--color-checkout-border: #325167;
+--color-checkout-muted: #58738a;
+
+/* Progress bar */
+--color-progress-track: #325167;
+
+/* Radio cards */
+--color-radio-bg-active: rgba(19, 146, 236, 0.1);
+
+/* Summary helper widget */
+--color-support-panel: rgba(25, 40, 51, 0.5);
+
+/* --- Order Success Page Additions --- */
+
+/* Success / confirmation accents */
+--color-success: #4ade80;
+
+/* Dark success cards */
+--color-success-card-bg: #192833;
+--color-success-card-border: #325167;
+
+/* Summary list items */
+--color-summary-row-bg: #111b22;
+--color-summary-row-border: #233948;
+
+/* Secondary action button */
+--color-secondary-button-bg: #233948;
+--color-secondary-button-hover: #2c4a5e;
+
+/* Totals divider */
+--color-divider-muted: #233948;
+
+
+}
+
+/* ============================= */
+/* OPTIONAL CUSTOM ANIMATIONS */
+/* ============================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.animate-delay-1 {
+  animation-delay: 0.15s;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.3s;
+}
+
+.animate-delay-3 {
+  animation-delay: 0.45s;
+}
+
+/* ============================= */
+/* DECORATIVE GRID BACKGROUND */
+/* ============================= */
+
+.grid-bg {
+  background-image: radial-gradient(#25c0f422 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+
