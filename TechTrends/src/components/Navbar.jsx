@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border-dark bg-background-dark/80 backdrop-blur-md">
@@ -6,7 +8,8 @@ export default function Navbar() {
 
           {/* Logo */}
           <div className="flex items-center gap-8">
-            <div className="flex items-center gap-3 text-white">
+
+            <Link to="/" className="flex items-center gap-3 text-white">
               <div className="size-8 flex items-center justify-center text-primary">
                 <span className="material-symbols-outlined text-3xl">
                   bolt
@@ -15,21 +18,60 @@ export default function Navbar() {
               <h2 className="text-xl font-bold tracking-tight">
                 GulfGadgets
               </h2>
-            </div>
+            </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-8">
-              {["Smartphones", "Audio", "Wearables", "Laptops", "Support"].map(
-                (item) => (
-                  <a
-                    key={item}
-                    href="#"
-                    className="text-slate-300 hover:text-primary transition text-sm font-medium"
-                  >
-                    {item}
-                  </a>
-                )
-              )}
+
+              <Link
+                to="/categories"
+                className="text-slate-300 hover:text-primary transition text-sm font-medium"
+              >
+                Products
+              </Link>
+
+              <Link
+                to="/categories"
+                className="text-slate-300 hover:text-primary transition text-sm font-medium"
+              >
+                Smartphones
+              </Link>
+
+              <Link
+                to="/categories"
+                className="text-slate-300 hover:text-primary transition text-sm font-medium"
+              >
+                Audio
+              </Link>
+
+              <Link
+                to="/categories"
+                className="text-slate-300 hover:text-primary transition text-sm font-medium"
+              >
+                Wearables
+              </Link>
+
+              <Link
+                to="/laptops"
+                className="text-slate-300 hover:text-primary transition text-sm font-medium"
+              >
+                Laptops
+              </Link>
+
+              <Link
+                to="/about"
+                className="text-slate-300 hover:text-primary transition text-sm font-medium"
+              >
+                About Us
+              </Link>
+
+              <Link
+                to="/about"
+                className="text-slate-300 hover:text-primary transition text-sm font-medium"
+              >
+                Support
+              </Link>
+
             </nav>
           </div>
 
@@ -45,18 +87,30 @@ export default function Navbar() {
               </div>
               <input
                 placeholder="Search gadgets..."
-                className="bg-transparent border-none focus:ring-0 text-white text-sm px-2"
+                className="bg-transparent border-none focus:ring-0 text-white text-sm px-2 outline-none"
               />
             </div>
 
-            {/* Icons */}
-            <button className="size-10 bg-surface-dark rounded-lg hover:bg-border-dark flex items-center justify-center">
-              <span className="material-symbols-outlined">shopping_cart</span>
-            </button>
+            {/* Cart */}
+            <Link
+              to="/cart"
+              className="size-10 bg-surface-dark rounded-lg hover:bg-border-dark flex items-center justify-center"
+            >
+              <span className="material-symbols-outlined">
+                shopping_cart
+              </span>
+            </Link>
 
-            <button className="hidden sm:flex size-10 bg-surface-dark rounded-lg hover:bg-border-dark items-center justify-center">
-              <span className="material-symbols-outlined">person</span>
-            </button>
+            {/* Wishlist */}
+            <Link
+              to="/wishlist"
+              className="hidden sm:flex size-10 bg-surface-dark rounded-lg hover:bg-border-dark items-center justify-center"
+            >
+              <span className="material-symbols-outlined">
+                favorite
+              </span>
+            </Link>
+
           </div>
         </div>
       </div>
