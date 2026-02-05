@@ -1,6 +1,6 @@
 import AboutHero from "../components/about/AboutHero";
 import Mission from "../components/about/AboutHero";
-import MissionFeatures from "../components/about/MissionFeatures";
+import MissionFeatures from "../components/about/Mission";
 import GlobalReach from "../components/about/GlobalReach";
 
 export default function About() {

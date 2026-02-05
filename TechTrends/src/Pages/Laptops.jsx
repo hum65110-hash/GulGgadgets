@@ -1,5 +1,5 @@
 import FilterSidebar from "../components/filters/FilterSidebar";
-import ProductGrid from "../components/products/ProductGrid";
+import ProductGrid from "../components/product/ProductGrid";
 import Pagination from "../components/ui/Pagination";
 import Footer from "../components/Footer";
 
