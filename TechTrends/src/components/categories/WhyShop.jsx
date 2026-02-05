@@ -21,7 +21,7 @@ export default function WhyShop() {
     <section className="rounded-2xl bg-surface-light dark:bg-surface-dark/50 border p-16">
 
       <header className="text-center mb-12">
-        <h2 className="text-4xl font-bold">Why GulfGadgets?</h2>
+        <h2 className="text-4xl font-bold text-slate-100">Why GulfGadgets?</h2>
         <p className="text-text-secondary mt-2">
           Experience premium service with every purchase.
         </p>
@@ -40,7 +40,7 @@ export default function WhyShop() {
               </span>
             </div>
 
-            <h3 className="font-bold text-lg">{f.title}</h3>
+            <h3 className="font-bold text-lg text-text-secondary">{f.title}</h3>
             <p className="text-text-secondary text-sm mt-2">
               {f.desc}
             </p>

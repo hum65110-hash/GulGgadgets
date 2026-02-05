@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 export default function Laptops() {
   return (
-    <main className="flex-1 w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row">
+    <main className="flex-1 w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row bg-background-dark">
 
       <FilterSidebar />
 

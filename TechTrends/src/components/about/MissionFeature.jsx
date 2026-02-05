@@ -32,7 +32,7 @@ export default function MissionFeatures() {
             </span>
           </div>
 
-          <h3 className="font-bold text-xl mb-2">
+          <h3 className="font-bold text-xl mb-2 text-text-secondary">
             {f.title}
           </h3>
 

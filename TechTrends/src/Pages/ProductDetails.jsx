@@ -9,7 +9,7 @@ import StickyBuyBar from "../components/product/StickyBuyBar";
 export default function ProductDetails() {
   return (
     <>
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-[1440px] mx-auto bg-background-dark">
 
         <Breadcrumbs />
 

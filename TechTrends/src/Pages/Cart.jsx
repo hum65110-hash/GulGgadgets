@@ -3,7 +3,7 @@ import OrderSummary from "../components/cart/OrderSummary";
 
 export default function Cart() {
   return (
-    <main className="w-full max-w-[1280px] mx-auto px-4 md:px-10 py-8 md:py-12">
+    <main className="w-full max-w-[1280px] mx-auto px-4 md:px-10 py-8 md:py-12 bg-background-dark">
 
       {/* Heading */}
       <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">

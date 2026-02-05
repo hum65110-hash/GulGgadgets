@@ -4,7 +4,7 @@ export default function CategoryHero() {
 
       <div className="absolute top-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -z-10" />
 
-      <h1 className="text-5xl font-bold mb-3">
+      <h1 className="text-5xl font-bold mb-3 text-slate-50">
         Explore Tech Categories
       </h1>
 

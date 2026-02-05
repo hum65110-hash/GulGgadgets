@@ -5,7 +5,7 @@ export default function CategoryBreadcrumbs() {
         Home
       </span>
       <span className="text-slate-muted">/</span>
-      <span className="font-medium">Categories</span>
+      <span className="font-medium text-slate-500">Categories</span>
     </nav>
   );
 }

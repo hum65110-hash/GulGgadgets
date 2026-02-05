@@ -7,7 +7,7 @@ import SupportWidget from "../components/checkout/SupportWidget";
 
 export default function Checkout() {
   return (
-    <main className="px-4 md:px-40 py-8 flex justify-center">
+    <main className="px-4 md:px-40 py-8 flex justify-center bg-background-dark">
 
       <div className="max-w-[960px] w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
 

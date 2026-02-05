@@ -4,7 +4,7 @@ export default function Mission() {
 
       <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
 
-      <h2 className="text-3xl md:text-4xl font-bold">
+      <h2 className="text-3xl md:text-4xl font-bold text-text-secondary">
         Our Core Mission
       </h2>
 
