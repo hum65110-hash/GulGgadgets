@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import productData from "../component/data/productData";
+import { useState, useEffect } from "react";
+import productData from "../components/data/products";
 
 import Breadcrumbs from "../components/product/Breadcrumbs";
 import ImageGallery from "../components/product/ImageGallery";
@@ -33,9 +34,24 @@ export default function ProductDetails() {
   const { productId } = useParams();
 
   const storedId =
-    productId || localStorage.getItem("selectedProductId");
+    productId ||
+    localStorage.getItem("selectedProductId");
 
   const product = getProductById(storedId);
+
+  /* ---------- VARIANT STATE ---------- */
+
+  const [variantIndex, setVariantIndex] =
+    useState(0);
+
+  useEffect(() => {
+    const saved =
+      localStorage.getItem(
+        "selectedVariantIndex"
+      );
+
+    if (saved) setVariantIndex(parseInt(saved));
+  }, []);
 
   if (!product) {
     return (
@@ -47,10 +63,11 @@ export default function ProductDetails() {
 
   /* ---------- NORMALIZE PRODUCT ---------- */
 
-  const hasVariants = product.variants?.length > 0;
+  const hasVariants =
+    product.variants?.length > 0;
 
   const activeVariant = hasVariants
-    ? product.variants[0]
+    ? product.variants[variantIndex]
     : null;
 
   const price = hasVariants
@@ -71,7 +88,7 @@ export default function ProductDetails() {
 
   /* ---------- CART ---------- */
 
-  const addToCart = (variantIndex = 0) => {
+  const addToCart = () => {
     let cart = getStorage("cart");
 
     const existing = cart.find(
@@ -91,7 +108,9 @@ export default function ProductDetails() {
     }
 
     saveStorage("cart", cart);
-    window.dispatchEvent(new Event("cartUpdated"));
+    window.dispatchEvent(
+      new Event("cartUpdated")
+    );
 
     alert("Added to Cart 🛒");
   };
@@ -136,11 +155,9 @@ export default function ProductDetails() {
           <div className="lg:col-span-5 space-y-8">
 
             <ProductInfo
-              brand={product.brand}
-              name={product.name}
-              price={price}
-              originalPrice={originalPrice}
-              inStock={true}
+              onVariantChange={(i) =>
+                setVariantIndex(i)
+              }
             />
 
             <SpecsGrid
@@ -152,8 +169,10 @@ export default function ProductDetails() {
             />
 
             <PurchaseOptions
-              onAddToCart={() => addToCart(0)}
-              onAddToWishlist={addToWishlist}
+              onAddToCart={addToCart}
+              onAddToWishlist={
+                addToWishlist
+              }
             />
 
           </div>
@@ -165,7 +184,7 @@ export default function ProductDetails() {
       <StickyBuyBar
         name={product.name}
         price={price}
-        onAddToCart={() => addToCart(0)}
+        onAddToCart={addToCart}
       />
     </div>
   );
