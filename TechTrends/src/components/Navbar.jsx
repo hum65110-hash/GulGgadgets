@@ -13,6 +13,9 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] =
     useState(false);
 
+  const [isLoggedIn, setIsLoggedIn] =
+    useState(!!localStorage.getItem("token"));
+
   /* ---------------- LOAD COUNTS ---------------- */
 
   const loadCounts = () => {
@@ -29,39 +32,60 @@ export default function Navbar() {
     setWishlistCount(wishlist.length);
   };
 
+  /* ---------------- LOGOUT ---------------- */
+
+const handleLogout = () => {
+  localStorage.removeItem("token");
+
+  window.dispatchEvent(
+    new Event("authChanged")
+  );
+
+  setMenuOpen(false);
+};
+
+
   /* ---------------- EVENTS ---------------- */
+useEffect(() => {
+  loadCounts();
 
-  useEffect(() => {
-    loadCounts();
+  const syncAuth = () => {
+    setIsLoggedIn(
+      !!localStorage.getItem("token")
+    );
+  };
 
-    window.addEventListener(
+  window.addEventListener(
+    "cartUpdated",
+    loadCounts
+  );
+  window.addEventListener(
+    "wishlistUpdated",
+    loadCounts
+  );
+
+  window.addEventListener("storage", syncAuth);
+  window.addEventListener("authChanged", syncAuth);
+
+  return () => {
+    window.removeEventListener(
       "cartUpdated",
       loadCounts
     );
-    window.addEventListener(
+    window.removeEventListener(
       "wishlistUpdated",
       loadCounts
     );
-    window.addEventListener(
+    window.removeEventListener(
       "storage",
-      loadCounts
+      syncAuth
     );
-
-    return () => {
-      window.removeEventListener(
-        "cartUpdated",
-        loadCounts
-      );
-      window.removeEventListener(
-        "wishlistUpdated",
-        loadCounts
-      );
-      window.removeEventListener(
-        "storage",
-        loadCounts
-      );
-    };
-  }, []);
+    window.removeEventListener(
+      "authChanged",
+      syncAuth
+    );
+  };
+}, []);
 
   /* ---------------- UI ---------------- */
 
@@ -177,22 +201,33 @@ export default function Navbar() {
               )}
             </Link>
 
-            {/* Auth Buttons (Desktop) */}
+            {/* Auth Buttons Desktop */}
             <div className="hidden lg:flex items-center gap-2 ml-2">
 
-              <Link
-                to="/login"
-                className="px-4 py-2 text-sm border border-border-dark rounded-lg text-white hover:border-primary hover:text-primary transition"
-              >
-                Login
-              </Link>
+              {isLoggedIn ? (
+                <button
+                  onClick={handleLogout}
+                  className="px-4 py-2 text-sm border border-border-dark rounded-lg text-red-400 hover:border-red-500 hover:text-red-500 transition"
+                >
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="px-4 py-2 text-sm border border-border-dark rounded-lg text-white hover:border-primary hover:text-primary transition"
+                  >
+                    Login
+                  </Link>
 
-              <Link
-                to="/signup"
-                className="px-4 py-2 text-sm bg-primary text-background-dark rounded-lg font-bold hover:bg-opacity-90 transition"
-              >
-                Sign Up
-              </Link>
+                  <Link
+                    to="/register"
+                    className="px-4 py-2 text-sm bg-primary text-background-dark rounded-lg font-bold hover:bg-opacity-90 transition"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
 
             </div>
 
@@ -270,29 +305,41 @@ export default function Navbar() {
           {/* Auth Mobile */}
           <div className="pt-4 border-t border-border-dark flex gap-3">
 
-            <Link
-              to="/login"
-              className="flex-1 text-center border border-border-dark rounded-lg py-2 text-white"
-              onClick={() =>
-                setMenuOpen(false)
-              }
-            >
-              Login
-            </Link>
+            {isLoggedIn ? (
+              <button
+                onClick={handleLogout}
+                className="flex-1 text-center border border-border-dark rounded-lg py-2 text-red-400"
+              >
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="flex-1 text-center border border-border-dark rounded-lg py-2 text-white"
+                  onClick={() =>
+                    setMenuOpen(false)
+                  }
+                >
+                  Login
+                </Link>
 
-            <Link
-              to="/signup"
-              className="flex-1 text-center bg-primary text-background-dark rounded-lg py-2 font-bold"
-              onClick={() =>
-                setMenuOpen(false)
-              }
-            >
-              Sign Up
-            </Link>
+                <Link
+                  to="/register"
+                  className="flex-1 text-center bg-primary text-background-dark rounded-lg py-2 font-bold"
+                  onClick={() =>
+                    setMenuOpen(false)
+                  }
+                >
+                  Sign Up
+                </Link>
+              </>
+            )}
 
           </div>
         </div>
       )}
+
     </header>
   );
 }
