@@ -1,4 +1,4 @@
-import RegisterForm from "./RegisterCard";
+import RegisterForm from "./RegisterForm";
 import SocialAuth from "./SocialAuth";
 
 export default function RegisterCard() {
