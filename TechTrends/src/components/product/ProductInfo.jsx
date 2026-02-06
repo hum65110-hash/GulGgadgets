@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
-import productData from "../data/products.js";
+import { normalizedProductData }
+  from "../data/products";
 
 /* ---------------- HELPERS ---------------- */
 
-const getAllProducts = () => [
-  ...productData.laptops,
-  ...productData.smartphones,
-  ...productData.wearables,
-  ...productData.audio,
-];
+const getAllProducts = () =>
+  Object.values(normalizedProductData).flat();
 
 const getProductById = (id) =>
   getAllProducts().find((p) => p.id === id);
+
 
 /* ---------------- COMPONENT ---------------- */
 
