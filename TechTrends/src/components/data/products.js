@@ -805,31 +805,7 @@ const productData = {
         },
       ],
     },
-    {
-      id: "iphone-16",
-      brand: "Apple",
-      name: "iPhone 16",
-      image:
-        "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=300&fit=crop",
-
-      variants: [
-        {
-          specs: ["128GB", "A18", "5G"],
-          originalPrice: "₹79,900",
-          price: "₹31,960",
-        },
-        {
-          specs: ["256GB", "A18", "5G"],
-          originalPrice: "₹89,900",
-          price: "₹35,960",
-        },
-        {
-          specs: ["512GB", "A18", "5G"],
-          originalPrice: "₹1,09,900",
-          price: "₹43,960",
-        },
-      ],
-    },
+    
     {
       id: "iphone-16-pro",
       brand: "Apple",

@@ -39,10 +39,17 @@ export default function ProductCard({ product, onClick }) {
   // ====================================================
 
   const handleProductClick = () => {
-    if (onClick) onClick();
+  if (onClick) onClick();
 
-    navigate(`/product/${productId}`);
-  };
+  // STORE ID
+  localStorage.setItem(
+    "selectedProductId",
+    productId
+  );
+
+  navigate(`/product/${productId}`);
+};
+
 
   // ====================================================
   // 🛒 ADD TO CART
