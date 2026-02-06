@@ -3,6 +3,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const CORS = require("cors");
 const morgan = require("morgan");
+const authRoutes = require("./authRoutes")
 app.use(morgan("dev"));
 app.use(
   CORS({
@@ -26,5 +27,6 @@ app.get("/api/v1/health", (req, res) => {
 app.get("/api/v1/ping", (req, res) => {
   res.status(200).json({ message: "Server is awake" });
 });
+app.use("/api/v1", authRoutes);
 
 module.exports = { app };
