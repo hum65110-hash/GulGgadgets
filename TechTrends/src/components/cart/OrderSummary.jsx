@@ -9,11 +9,9 @@ export default function OrderSummary() {
 
   // ---------- LOAD CART ----------
 
-  const loadCart = () => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(storedCart);
-  };
-
+  const loadCart  = () => {
+  setCart(getCart());
+};
   useEffect(() => {
     loadCart();
 

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import productData from "../data/products";
+import { getCart, saveCart } from "../utils/storage";
+import toast from "react-hot-toast";
 
 /* ---------------- HELPERS ---------------- */
 
@@ -69,34 +71,42 @@ export default function StickyBuyBar() {
 
   /* ---------- ADD TO CART ---------- */
 
-  const addToCart = () => {
-    let cart = getStorage("cart");
+const addToCart = () => {
+  const cart = getCart();
 
-    const existing = cart.find(
-      (item) =>
-        item.id === product.id &&
-        item.variantIndex ===
-          variantIndex
-    );
+  const variant = product.variants[variantIndex];
 
-    if (existing) {
-      existing.qty += 1;
-    } else {
-      cart.push({
-        id: product.id,
-        variantIndex,
-        qty: 1,
-      });
-    }
+  const existing = cart.find(
+    (item) =>
+      item.productId === product.id &&
+      item.variantId === variant.id
+  );
 
-    saveStorage("cart", cart);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({
+      productId: product.id,
+      variantId: variant.id,
+      category: product.category,
+      name: product.name,
+      brand: product.brand,
+      image: product.image,
+      specs: variant.specs,
+      price: variant.price,
+      numericPrice: variant.numericPrice,
+      qty: 1,
+    });
+  }
 
-    window.dispatchEvent(
-      new Event("cartUpdated")
-    );
+  saveCart(cart);
 
-    alert("Added to Cart 🛒");
-  };
+  window.dispatchEvent(
+    new Event("cartUpdated")
+  );
+
+  toast.success("Added to cart");
+};
 
   /* ---------- UI ---------- */
 

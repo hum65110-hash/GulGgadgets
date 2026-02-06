@@ -7,7 +7,7 @@ export default function CartItem({
   name,
   brand,
   image,
-  specs,
+  specs = [],   // ✅ default fallback
   price,
   qty: initialQty,
 }) {
@@ -18,6 +18,7 @@ export default function CartItem({
 
   const reload = () => {
     const cart = getCart();
+
     const item = cart.find(
       (i) =>
         i.productId === productId &&
@@ -42,6 +43,10 @@ export default function CartItem({
       cart[idx].qty = newQty;
       saveCart(cart);
       setQty(newQty);
+
+      window.dispatchEvent(
+        new Event("cartUpdated")
+      );
     }
   };
 
@@ -63,6 +68,10 @@ export default function CartItem({
     );
 
     saveCart(updated);
+
+    window.dispatchEvent(
+      new Event("cartUpdated")
+    );
   };
 
   // ---------------- SYNC ----------------
@@ -78,6 +87,12 @@ export default function CartItem({
       window.removeEventListener("storage", reload);
     };
   }, []);
+
+  // ---------------- SAFE SPECS ----------------
+
+  const safeSpecs = Array.isArray(specs)
+    ? specs
+    : [];
 
   // ---------------- UI ----------------
 
@@ -102,8 +117,11 @@ export default function CartItem({
             <h3 className="text-lg text-white font-bold">
               {name}
             </h3>
+
             <p className="text-text-muted-light text-sm">
-              {brand} | {specs.join(" | ")}
+              {brand}{" "}
+              {safeSpecs.length > 0 &&
+                `| ${safeSpecs.join(" | ")}`}
             </p>
           </div>
 
