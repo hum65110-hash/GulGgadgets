@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import CheckoutModal from "../checkout/CheckoutModal";
 import { getCart } from "../utils/storage";
 
 export default function OrderSummary() {
 
   const [cart, setCart] = useState([]);
+  const [openCheckout, setOpenCheckout] = useState(false);
 
   // ---------- LOAD CART ----------
 
@@ -123,9 +125,12 @@ export default function OrderSummary() {
       </div>
 
       {/* Checkout */}
-      <button className="w-full bg-primary hover:bg-blue-600 py-4 rounded-xl font-bold shadow-lg shadow-primary/20 hover:scale-[var(--scale-hover-soft)] transition">
-        Checkout
-      </button>
+      <CheckoutModal
+        open={openCheckout}
+        onClose={() => setOpenCheckout(false)}
+        total={total}
+      />
+
 
       <p className="text-xs text-text-muted-light flex justify-center gap-1">
 
