@@ -1,6 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import productData from "../components/data/products";
+import { normalizedProductData } from "../components/data/products";
+
+import toast from "react-hot-toast";
+
+
 
 import Breadcrumbs from "../components/product/Breadcrumbs";
 import ImageGallery from "../components/product/ImageGallery";
@@ -9,18 +13,16 @@ import SpecsGrid from "../components/product/SpecsGrid";
 import PurchaseOptions from "../components/product/PurchaseOptions";
 import FrequentlyBought from "../components/product/FrequentlyBought";
 import StickyBuyBar from "../components/product/StickyBuyBar";
+import { getWishlist, saveWishlist } from "../components/utils/storage";
 
 /* ---------------- HELPERS ---------------- */
 
-const getAllProducts = () => [
-  ...productData.laptops,
-  ...productData.smartphones,
-  ...productData.wearables,
-  ...productData.audio,
-];
+const getAllProducts = () =>
+  Object.values(normalizedProductData).flat();
 
 const getProductById = (id) =>
   getAllProducts().find((p) => p.id === id);
+
 
 const getStorage = (key) =>
   JSON.parse(localStorage.getItem(key)) || [];
@@ -87,51 +89,66 @@ export default function ProductDetails() {
     (product.image ? [product.image] : []);
 
   /* ---------- CART ---------- */
+const variant = product.variants[variantIndex];
 
-  const addToCart = () => {
-    let cart = getStorage("cart");
+const addToCart = () => {
+  const cart = getCart();
 
-    const existing = cart.find(
-      (item) =>
-        item.id === product.id &&
-        item.variantIndex === variantIndex
-    );
+  const existing = cart.find(
+    (i) =>
+      i.productId === product.id &&
+      i.variantId === variant.id
+  );
 
-    if (existing) {
-      existing.qty += 1;
-    } else {
-      cart.push({
-        id: product.id,
-        variantIndex,
-        qty: 1,
-      });
-    }
+  if (existing) existing.qty += 1;
+  else {
+    cart.push({
+      productId: product.id,
+      variantId: variant.id,
+      category: product.category,
+      name: product.name,
+      brand: product.brand,
+      image: product.image,
+      specs: variant.specs,
+      price: variant.price,
+      numericPrice: variant.numericPrice,
+      qty: 1,
+    });
+  }
 
-    saveStorage("cart", cart);
-    window.dispatchEvent(
-      new Event("cartUpdated")
-    );
+  saveCart(cart);
+  toast.success("Added to cart");
 
-    alert("Added to Cart 🛒");
-  };
+};
+
 
   /* ---------- WISHLIST ---------- */
+const addToWishlist = () => {
+  let wishlist = getWishlist();
 
-  const addToWishlist = () => {
-    let wishlist = getStorage("wishlist");
+  const exists = wishlist.some(
+    (w) =>
+      w.productId === product.id &&
+      w.variantId === variant.id
+  );
 
-    const exists = wishlist.find(
-      (item) => item.id === product.id
-    );
+  if (!exists) {
+    wishlist.push({
+      productId: product.id,
+      variantId: variant.id,
+      category: product.category,
+      name: product.name,
+      brand: product.brand,
+      image: product.image,
+      specs: variant.specs,
+      price: variant.price,
+      numericPrice: variant.numericPrice,
+    });
+  }
 
-    if (!exists) {
-      wishlist.push({ id: product.id });
-      saveStorage("wishlist", wishlist);
-      alert("Added to Wishlist ❤️");
-    } else {
-      alert("Already in Wishlist");
-    }
-  };
+  saveWishlist(wishlist);
+  toast.success("Added to Wishlist");
+};
 
   /* ---------- UI ---------- */
 

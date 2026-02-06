@@ -15,9 +15,6 @@ export default function Cart() {
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-text-secondary">
             Shopping Cart
           </h1>
-          <p className="text-text-muted-light mt-6">
-            You have 3 items in your cart
-          </p>
         </div>
 
 <button

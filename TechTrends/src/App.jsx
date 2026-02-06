@@ -17,6 +17,8 @@ import Tablets from "./Pages/Tablets";
 import Cameras from "./Pages/Cameras";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Audio from "./Pages/Audio";
+import Contact from "./Pages/Contact";
 
 const App = () => {
   return (
@@ -32,10 +34,12 @@ const App = () => {
         <Route path="/laptops" element={<Laptops />} />
         <Route path="/smartphones" element={<Smartphones />} />
         <Route path="/wearables" element={<Wearables />} />
+        <Route path="/audio" element={<Audio />} />
         <Route path="/smart-home" element={<SmartHome />} />
-<Route path="/gaming" element={<Gaming />} />
-<Route path="/tablets" element={<Tablets />} />
-<Route path="/cameras" element={<Cameras />} />
+        <Route path="/gaming" element={<Gaming />} />
+        <Route path="/tablets" element={<Tablets />} />
+        <Route path="/cameras" element={<Cameras />} />
+        <Route path="/contact" element={<Contact/>} />
 
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/wishlist" element={<Wishlist />} />

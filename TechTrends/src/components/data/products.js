@@ -1581,4 +1581,112 @@ const productData = {
   ],
 };
 
+const slugify = (str = "") =>
+  str
+    .toLowerCase()
+    .replace(/"/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+
+const parsePrice = (price) => {
+  if (!price) return 0;
+  return Number(price.replace(/[₹,]/g, ""));
+};
+
+
+
+// =======================================================
+// 🔄 NORMALIZER
+// =======================================================
+
+function normalizeProducts(data) {
+  const seenIds = new Set();
+  const normalized = {};
+
+  Object.entries(data).forEach(([category, items]) => {
+    normalized[category] = items.map((item, index) => {
+
+      // -------------------------------------------------
+      // 🆔 PRODUCT ID
+      // -------------------------------------------------
+      let baseId =
+        item.id ||
+        `${slugify(item.brand)}-${slugify(item.name)}`;
+
+      // prevent duplicates
+      let id = baseId;
+      let counter = 1;
+
+      while (seenIds.has(id)) {
+        id = `${baseId}-${counter++}`;
+      }
+
+      seenIds.add(id);
+
+      // -------------------------------------------------
+      // 📦 VARIANTS NORMALIZATION
+      // -------------------------------------------------
+
+      let variants = [];
+
+      if (item.variants?.length) {
+        variants = item.variants.map((v, vIndex) => ({
+          id: `${id}-v${vIndex}`,
+          specs: v.specs || [],
+          price: v.price,
+          originalPrice: v.originalPrice,
+          numericPrice: parsePrice(v.price),
+          numericOriginalPrice: parsePrice(v.originalPrice),
+        }));
+      } else {
+        variants = [
+          {
+            id: `${id}-v0`,
+            specs: item.specs || [],
+            price: item.price,
+            originalPrice: item.originalPrice,
+            numericPrice: parsePrice(item.price),
+            numericOriginalPrice: parsePrice(item.originalPrice),
+          },
+        ];
+      }
+
+      // -------------------------------------------------
+      // 💰 PRICE RANGE
+      // -------------------------------------------------
+
+      const prices = variants.map((v) => v.numericPrice);
+      const minPrice = Math.min(...prices);
+      const maxPrice = Math.max(...prices);
+
+      // -------------------------------------------------
+      // 📦 FINAL PRODUCT OBJECT
+      // -------------------------------------------------
+
+      return {
+        ...item,
+        id,
+        category,
+        image: item.image || null,
+        images: item.images || (item.image ? [item.image] : []),
+        variants,
+        minPrice,
+        maxPrice,
+      };
+    });
+  });
+
+  return normalized;
+}
+
+
+
+// =======================================================
+// ✅ EXPORTS
+// =======================================================
+
 export default productData;
+
+// 👇 Use this for ecommerce logic
+export const normalizedProductData =
+  normalizeProducts(productData);

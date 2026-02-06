@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getCart } from "../utils/storage";
 
 export default function OrderSummary() {
 
@@ -25,14 +26,11 @@ export default function OrderSummary() {
 
   // ---------- CALCULATIONS ----------
 
-  const subtotal = cart.reduce((acc, item) => {
-    const priceNumber = parseFloat(
-      item.price.replace(/[^0-9.]/g, "")
-    );
-
-    return acc + priceNumber * item.qty;
-  }, 0);
-
+  const subtotal = cart.reduce(
+    (acc, item) =>
+      acc + item.numericPrice * item.qty,
+    0
+  );
   const shipping = subtotal > 0 ? 0 : 0; // Free shipping logic
 
   const taxRate = 0.08; // 8% tax
@@ -56,7 +54,7 @@ export default function OrderSummary() {
       }}
     >
 
-      <h2 className="text-2xl font-bold">
+      <h2 className="text-2xl text-white font-bold">
         Order Summary
       </h2>
 
@@ -71,10 +69,10 @@ export default function OrderSummary() {
 
           <input
             placeholder="Enter code"
-            className="flex-1 bg-gray-50 dark:bg-[#111b22] border border-gray-200 dark:border-[#233948] rounded-lg px-3 py-2.5 text-sm"
+            className="flex-1 text-white bg-gray-50 dark:bg-[#111b22] border border-gray-200 dark:border-[#233948] rounded-lg px-3 py-2.5 text-sm"
           />
 
-          <button className="px-4 rounded-lg font-bold bg-gray-200 dark:bg-[#233948] hover:bg-gray-300">
+          <button className="px-4 text-white hover:text-black hover:cursor-pointer rounded-lg font-bold bg-gray-200 dark:bg-[#233948] hover:bg-gray-300">
             Apply
           </button>
 
@@ -114,7 +112,7 @@ export default function OrderSummary() {
 
       <div className="flex justify-between">
 
-        <span className="text-lg font-bold">
+        <span className="text-lg text-white font-bold">
           Total
         </span>
 

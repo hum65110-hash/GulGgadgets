@@ -1,99 +1,112 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getCart, saveCart } from "../utils/storage";
 
 export default function CartItem({
-  id,
-  title,
-  subtitle,
+  productId,
+  variantId,
+  name,
+  brand,
+  image,
+  specs,
   price,
-  qty: initialQty
+  qty: initialQty,
 }) {
 
   const [qty, setQty] = useState(initialQty);
 
-  // ---------- HELPERS ----------
+  // ---------------- LOAD ----------------
 
-  const getCart = () => {
-    return JSON.parse(localStorage.getItem("cart")) || [];
+  const reload = () => {
+    const cart = getCart();
+    const item = cart.find(
+      (i) =>
+        i.productId === productId &&
+        i.variantId === variantId
+    );
+
+    if (item) setQty(item.qty);
   };
 
-  const saveCart = (cart) => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  };
-
-  // ---------- UPDATE QTY ----------
+  // ---------------- UPDATE QTY ----------------
 
   const updateQty = (newQty) => {
-    let cart = getCart();
+    const cart = getCart();
 
-    const productIndex = cart.findIndex(item => item.id === id);
+    const idx = cart.findIndex(
+      (i) =>
+        i.productId === productId &&
+        i.variantId === variantId
+    );
 
-    if (productIndex !== -1) {
-      cart[productIndex].qty = newQty;
+    if (idx !== -1) {
+      cart[idx].qty = newQty;
       saveCart(cart);
       setQty(newQty);
     }
   };
 
-  // ---------- INCREMENT ----------
-
-  const increaseQty = () => {
-    updateQty(qty + 1);
-  };
-
-  // ---------- DECREMENT ----------
+  const increaseQty = () => updateQty(qty + 1);
 
   const decreaseQty = () => {
-    if (qty <= 1) return; // prevent 0
-    updateQty(qty - 1);
+    if (qty > 1) updateQty(qty - 1);
   };
 
-  // ---------- REMOVE ITEM ----------
+  // ---------------- REMOVE ----------------
 
   const removeItem = () => {
-    let cart = getCart();
+    const updated = getCart().filter(
+      (i) =>
+        !(
+          i.productId === productId &&
+          i.variantId === variantId
+        )
+    );
 
-    cart = cart.filter(item => item.id !== id);
-
-    saveCart(cart);
-
-    // Optional: refresh page OR trigger parent reload
-    window.location.reload();
+    saveCart(updated);
   };
 
-  // ---------- SYNC IF STORAGE CHANGES ----------
+  // ---------------- SYNC ----------------
 
   useEffect(() => {
-    const syncCart = () => {
-      const cart = getCart();
-      const product = cart.find(item => item.id === id);
-      if (product) setQty(product.qty);
+    reload();
+
+    window.addEventListener("cartUpdated", reload);
+    window.addEventListener("storage", reload);
+
+    return () => {
+      window.removeEventListener("cartUpdated", reload);
+      window.removeEventListener("storage", reload);
     };
+  }, []);
 
-    window.addEventListener("storage", syncCart);
-    return () => window.removeEventListener("storage", syncCart);
-  }, [id]);
-
-  // ---------- UI ----------
+  // ---------------- UI ----------------
 
   return (
     <div className="group flex flex-col sm:flex-row gap-6 bg-white dark:bg-[#15232d] p-5 rounded-xl border border-gray-100 dark:border-[#233948]/50 shadow-sm hover:border-primary/30 transition">
 
-      {/* Image */}
-      <div className="shrink-0 rounded-lg aspect-square size-24 sm:size-32 bg-surface-dark" />
+      {/* IMAGE */}
+      <div className="shrink-0 rounded-lg aspect-square size-24 sm:size-32 bg-surface-dark overflow-hidden">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-full object-contain"
+        />
+      </div>
 
-      {/* Content */}
+      {/* CONTENT */}
       <div className="flex flex-1 flex-col justify-between">
 
         <div className="flex justify-between">
 
           <div>
-            <h3 className="text-lg font-bold">{title}</h3>
+            <h3 className="text-lg text-white font-bold">
+              {name}
+            </h3>
             <p className="text-text-muted-light text-sm">
-              {subtitle}
+              {brand} | {specs.join(" | ")}
             </p>
           </div>
 
-          {/* DELETE */}
           <button
             onClick={removeItem}
             className="text-text-muted-light hover:text-primary"
@@ -122,7 +135,7 @@ export default function CartItem({
             <input
               readOnly
               value={qty}
-              className="w-8 bg-transparent text-center font-medium"
+              className="w-8 text-white bg-transparent text-center font-medium"
             />
 
             <button
@@ -136,7 +149,7 @@ export default function CartItem({
 
           </div>
 
-          <p className="text-xl font-bold">
+          <p className="text-xl text-white font-bold">
             {price}
           </p>
 

@@ -1,63 +1,70 @@
 import ProductCard from "./ProductCard";
-import productData from "../data/products";
+import { normalizedProductData } from "../data/products";
 
-export default function ProductGrid({ category = "laptops" }) {
-
-  // =========================================================
-  // 📦 GET PRODUCTS BY CATEGORY
-  // =========================================================
+export default function ProductGrid({
+  category = "laptops",
+  priceRanges = [],
+}) {
 
   const products =
-    productData[category] || productData.laptops;
+    normalizedProductData[category] ||
+    normalizedProductData.laptops;
 
-  // =========================================================
-  // 🧠 STORE CLICKED PRODUCT
-  // =========================================================
+  // ---------------- PRICE FILTER ----------------
 
-  const handleProductClick = (product) => {
+  const filteredProducts =
+    priceRanges.length === 0
+      ? products
+      : products.filter((product) => {
 
-    // Create URL-friendly ID
-    const productId = `${product.brand
-      .toLowerCase()
-      .replace(/\s+/g, "-")}-${product.name
-      .toLowerCase()
-      .replace(/\s+/g, "-")}`;
+          const cheapestVariant =
+            product.variants.reduce(
+              (min, v) =>
+                v.numericPrice < min
+                  ? v.numericPrice
+                  : min,
+              Infinity
+            );
 
-    // Full product object for details page
-    const productDetailsData = {
-      id: productId,
-      category,
-      ...product,
-      images: product.images || [product.image],
-      inStock: true,
-      qty: 1
-    };
+          return priceRanges.some(
+            (range) =>
+              cheapestVariant >= range.min &&
+              cheapestVariant < range.max
+          );
+        });
 
-    // Store in localStorage
-    localStorage.setItem(
-      "selectedProduct",
-      JSON.stringify(productDetailsData)
+  // ---------------- EMPTY STATE ----------------
+
+  if (filteredProducts.length === 0) {
+    return (
+      <div className="w-full flex flex-col items-center justify-center py-24 text-center">
+
+        <span className="material-symbols-outlined text-[64px] text-text-secondary mb-4">
+          search_off
+        </span>
+
+        <h3 className="text-xl font-bold text-white">
+          No products found
+        </h3>
+
+        <p className="text-text-secondary mt-2">
+          Try adjusting your price filters.
+        </p>
+
+      </div>
     );
-  };
+  }
 
-  // =========================================================
-  // 🖥️ UI
-  // =========================================================
+  // ---------------- GRID ----------------
 
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
 
-      {products.map((product, i) => (
-
+      {filteredProducts.map((product) => (
         <ProductCard
-          key={i}
-          {...product}
-          category={category}
-          onClick={() =>
-            handleProductClick(product)
-          }
+          key={product.id}
+          product={product}
         />
-
       ))}
 
     </div>

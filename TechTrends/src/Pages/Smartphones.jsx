@@ -1,12 +1,14 @@
+import { useState } from "react";
 import FilterSidebar from "../components/filters/FilterSidebar";
 import ProductGrid from "../components/product/ProductGrid";
-import Pagination from "../components/ui/Pagination";
-
 export default function Smartphones() {
+   const [priceRanges, setPriceRanges] =
+    useState([]);
+
   return (
     <main className="flex-1 w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row bg-background-dark">
 
-      <FilterSidebar />
+      <FilterSidebar onPriceChange={setPriceRanges} />
 
       <section className="flex-1 flex flex-col p-6 lg:p-10">
 
@@ -36,9 +38,9 @@ export default function Smartphones() {
           </div>
         </div>
 
-        <ProductGrid category="smartphones" />
+        <ProductGrid category="smartphones" priceRanges={priceRanges}/>
 
-        <Pagination />
+        {/* <Pagination /> */}
 
       </section>
     </main>

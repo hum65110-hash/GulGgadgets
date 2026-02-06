@@ -1,12 +1,18 @@
+import { useState } from "react";
 import FilterSidebar from "../components/filters/FilterSidebar";
 import ProductGrid from "../components/product/ProductGrid";
-import Pagination from "../components/ui/Pagination";
 
 export default function Laptops() {
+
+  const [priceRanges, setPriceRanges] =
+    useState([]);
+
   return (
     <main className="flex-1 w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row bg-background-dark">
 
-      <FilterSidebar />
+      <FilterSidebar
+        onPriceChange={setPriceRanges}
+      />
 
       <section className="flex-1 flex flex-col p-6 lg:p-10">
 
@@ -23,22 +29,28 @@ export default function Laptops() {
                 {item}
               </a>
             ))}
-            <span className="text-white">High-Performance Laptops</span>
+            <span className="text-white">
+              High-Performance Laptops
+            </span>
           </nav>
 
           <div className="flex flex-col md:flex-row justify-between gap-4">
             <div>
-              <h1 className="text-4xl font-bold text-white">High-Performance Laptops</h1>
+              <h1 className="text-4xl font-bold text-white">
+                High-Performance Laptops
+              </h1>
               <p className="text-text-secondary">
-                Showing 124 results for gaming & professional workstations
+                Showing results for gaming & professional workstations
               </p>
             </div>
           </div>
+
         </div>
 
-        <ProductGrid category="laptops" />
-
-        <Pagination />
+        <ProductGrid
+          category="laptops"
+          priceRanges={priceRanges}
+        />
 
       </section>
     </main>

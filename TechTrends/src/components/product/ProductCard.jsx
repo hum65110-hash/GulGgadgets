@@ -1,127 +1,142 @@
 import { useNavigate } from "react-router-dom";
+import {
+  getCart,
+  saveCart,
+  getWishlist,
+  saveWishlist,
+  isInWishlist,
+} from "../utils/storage";
+import toast from "react-hot-toast";
+export default function ProductCard({ product, onClick }) {
 
-export default function ProductCard({
-  id, // 👈 accept real id if exists
-  brand,
-  name,
-  image,
-  specs = [],
-  originalPrice,
-  price,
-  category = "products",
-  onClick
-}) {
   const navigate = useNavigate();
 
-  // =========================================================
-  // 🆔 PRODUCT ID (fallback generator)
-  // =========================================================
-
-  const productId =
-    id ||
-    `${brand.toLowerCase().replace(/\s+/g, "-")}-${name
-      .toLowerCase()
-      .replace(/\s+/g, "-")}`;
-
-  // =========================================================
-  // 📦 MINIMAL PRODUCT OBJECT
-  // (Only what UI needs instantly)
-  // =========================================================
-
-  const productPreview = {
+  const {
     id: productId,
     brand,
     name,
     image,
+    specs = [],
+    category,
+    variants,
+  } = product;
+
+  const defaultVariant = variants[0];
+
+  const {
+    id: variantId,
     price,
     originalPrice,
-    category
-  };
+    numericPrice,
+    specs: variantSpecs = [],
+  } = defaultVariant;
 
-  // =========================================================
-  // 💾 STORAGE HELPERS
-  // =========================================================
+  const finalSpecs =
+    variantSpecs.length ? variantSpecs : specs;
 
-  const getStorage = (key) =>
-    JSON.parse(localStorage.getItem(key)) || [];
-
-  const saveStorage = (key, data) =>
-    localStorage.setItem(key, JSON.stringify(data));
-
-  // =========================================================
+  // ====================================================
   // 🔗 PRODUCT CLICK
-  // =========================================================
+  // ====================================================
 
   const handleProductClick = () => {
-    // Store ONLY ID (clean architecture)
-    localStorage.setItem(
-      "selectedProductId",
-      productId
-    );
-
-    if (onClick) onClick(productPreview);
+    if (onClick) onClick();
 
     navigate(`/product/${productId}`);
   };
 
-  // =========================================================
+  // ====================================================
   // 🛒 ADD TO CART
-  // =========================================================
+  // ====================================================
 
   const addToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    let cart = getStorage("cart");
+    const cart = getCart();
 
     const existing = cart.find(
       (item) =>
-        item.id === productId &&
-        item.variantIndex === 0
+        item.productId === productId &&
+        item.variantId === variantId
     );
 
     if (existing) {
       existing.qty += 1;
     } else {
       cart.push({
-        id: productId,
-        variantIndex: 0,
-        qty: 1
+        productId,
+        variantId,
+        category,
+        name,
+        brand,
+        image,
+        specs: finalSpecs,
+        price,
+        numericPrice,
+        qty: 1,
       });
     }
 
-    saveStorage("cart", cart);
-    window.dispatchEvent(new Event("cartUpdated"));
+    saveCart(cart);
+    toast.success("Added to cart");
 
-    alert("Added to Cart 🛒");
   };
 
-  // =========================================================
-  // ❤️ ADD TO WISHLIST
-  // =========================================================
 
-  const addToWishlist = (e) => {
+  const inWishlist = isInWishlist(
+    productId,
+    variantId
+  );
+
+
+  const toggleWishlist = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    let wishlist = getStorage("wishlist");
+    const wishlist = getWishlist();
 
-    const exists = wishlist.find(
-      (item) => item.id === productId
+    const existsIndex = wishlist.findIndex(
+      (w) =>
+        w.productId === productId &&
+        w.variantId === variantId
     );
 
-    if (!exists) {
-      wishlist.push({ id: productId });
-      saveStorage("wishlist", wishlist);
-      alert("Added to Wishlist ❤️");
+    let updated;
+
+    if (existsIndex !== -1) {
+      // REMOVE only this one
+      updated = wishlist.filter(
+        (_, i) => i !== existsIndex
+      );
+
+      toast("Removed from wishlist 💔");
     } else {
-      alert("Already in Wishlist");
+      // ADD once
+      updated = [
+        ...wishlist,
+        {
+          productId,
+          variantId,
+          category,
+          name,
+          brand,
+          image,
+          specs: finalSpecs,
+          price,
+          numericPrice,
+        },
+      ];
+
+      toast.success("Added to wishlist ❤️");
     }
+
+    saveWishlist(updated);
   };
 
-  // =========================================================
-  // 🖥️ UI
-  // =========================================================
+
+  // ====================================================
+  // 🖥️ UI (UNCHANGED)
+  // ====================================================
 
   return (
     <div
@@ -133,11 +148,11 @@ export default function ProductCard({
 
         {/* Wishlist */}
         <button
-          onClick={addToWishlist}
+          onClick={toggleWishlist}
           className="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-dark/80 hover:bg-white hover:text-primary text-white flex items-center justify-center transition z-10"
         >
           <span className="material-symbols-outlined text-[18px]">
-            favorite
+            {inWishlist ? "favorite" : "favorite_border"}
           </span>
         </button>
 
@@ -161,7 +176,7 @@ export default function ProductCard({
 
         {/* SPECS */}
         <div className="flex gap-2 flex-wrap">
-          {specs.map((tag, i) => (
+          {finalSpecs.map((tag, i) => (
             <span
               key={i}
               className="text-[10px] bg-background-dark border border-steel-blue px-2 py-0.5 rounded text-text-secondary"

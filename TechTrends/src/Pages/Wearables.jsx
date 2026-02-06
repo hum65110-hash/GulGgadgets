@@ -1,12 +1,15 @@
+import React, { useState } from "react";
 import FilterSidebar from "../components/filters/FilterSidebar";
 import ProductGrid from "../components/product/ProductGrid";
-import Pagination from "../components/ui/Pagination";
 
 export default function Wearables() {
+    const [priceRanges, setPriceRanges] =
+      useState([]);
   return (
     <main className="flex-1 w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row bg-background-dark">
 
-      <FilterSidebar />
+      <FilterSidebar onPriceChange={setPriceRanges} />
+      
 
       <section className="flex-1 flex flex-col p-6 lg:p-10">
 
@@ -36,9 +39,8 @@ export default function Wearables() {
           </div>
         </div>
 
-        <ProductGrid category="wearables" />
+        <ProductGrid category="wearables" priceRanges={priceRanges}/>
 
-        <Pagination />
 
       </section>
     </main>
