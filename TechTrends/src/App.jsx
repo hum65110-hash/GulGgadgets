@@ -19,6 +19,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Audio from "./Pages/Audio";
 import Contact from "./Pages/Contact";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 const App = () => {
   return (
@@ -40,7 +42,7 @@ const App = () => {
         <Route path="/tablets" element={<Tablets />} />
         <Route path="/cameras" element={<Cameras />} />
         <Route path="/contact" element={<Contact/>} />
-    <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/wishlist" element={<Wishlist />} />
