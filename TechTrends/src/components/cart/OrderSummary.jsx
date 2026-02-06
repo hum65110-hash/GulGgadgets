@@ -1,4 +1,51 @@
+import { useEffect, useState } from "react";
+
 export default function OrderSummary() {
+
+  const [cart, setCart] = useState([]);
+
+  // ---------- LOAD CART ----------
+
+  const loadCart = () => {
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(storedCart);
+  };
+
+  useEffect(() => {
+    loadCart();
+
+    window.addEventListener("cartUpdated", loadCart);
+    window.addEventListener("storage", loadCart);
+
+    return () => {
+      window.removeEventListener("cartUpdated", loadCart);
+      window.removeEventListener("storage", loadCart);
+    };
+  }, []);
+
+  // ---------- CALCULATIONS ----------
+
+  const subtotal = cart.reduce((acc, item) => {
+    const priceNumber = parseFloat(
+      item.price.replace(/[^0-9.]/g, "")
+    );
+
+    return acc + priceNumber * item.qty;
+  }, 0);
+
+  const shipping = subtotal > 0 ? 0 : 0; // Free shipping logic
+
+  const taxRate = 0.08; // 8% tax
+  const tax = subtotal * taxRate;
+
+  const total = subtotal + shipping + tax;
+
+  // ---------- FORMATTER ----------
+
+  const format = (num) => `$${num.toFixed(2)}`;
+
+  // ---------- UI ----------
+
   return (
     <aside
       className="w-full lg:w-1/3 rounded-xl p-6 shadow-xl flex flex-col gap-6"
@@ -43,21 +90,21 @@ export default function OrderSummary() {
         <div className="flex justify-between">
           <span>Subtotal</span>
           <span className="font-medium text-white">
-            $647.99
+            {format(subtotal)}
           </span>
         </div>
 
         <div className="flex justify-between">
           <span>Shipping</span>
           <span className="font-medium text-[var(--color-success)]">
-            Free
+            {shipping === 0 ? "Free" : format(shipping)}
           </span>
         </div>
 
         <div className="flex justify-between">
           <span>Tax</span>
           <span className="font-medium text-white">
-            $51.84
+            {format(tax)}
           </span>
         </div>
 
@@ -72,7 +119,7 @@ export default function OrderSummary() {
         </span>
 
         <span className="text-2xl font-black text-primary">
-          $699.83
+          {format(total)}
         </span>
 
       </div>
@@ -95,4 +142,3 @@ export default function OrderSummary() {
     </aside>
   );
 }
-
