@@ -40,7 +40,8 @@ const App = () => {
         <Route path="/tablets" element={<Tablets />} />
         <Route path="/cameras" element={<Cameras />} />
         <Route path="/contact" element={<Contact/>} />
-
+    <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="*" element={<h1 className="text-center text-2xl py-20">Page Not Found</h1>} />
