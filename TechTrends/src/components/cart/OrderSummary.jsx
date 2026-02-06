@@ -42,7 +42,15 @@ export default function OrderSummary() {
 
   // ---------- FORMATTER ----------
 
-  const format = (num) => `$${num.toFixed(2)}`;
+  // ---------- FORMATTER ----------
+
+  const format = (num) =>
+    new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 2,
+    }).format(num);
+
 
   // ---------- UI ----------
 
@@ -123,6 +131,15 @@ export default function OrderSummary() {
         </span>
 
       </div>
+
+      {/* Checkout Button */}
+      <button
+        onClick={() => setOpenCheckout(true)}
+        className="w-full bg-primary hover:bg-blue-600 py-4 rounded-xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition"
+      >
+        Checkout
+      </button>
+
 
       {/* Checkout */}
       <CheckoutModal
