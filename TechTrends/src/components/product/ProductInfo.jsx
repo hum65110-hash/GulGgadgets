@@ -1,13 +1,25 @@
-export default function ProductInfo() {
+export default function ProductInfo({ 
+  brand = "Brand",
+  name = "Product Name",
+  price = "₹0",
+  originalPrice = "₹0",
+  inStock = true
+}) {
   return (
     <div>
-      <h1 className="text-4xl font-bold text-text-secondary">Flagship X1</h1>
+      <div className="text-sm uppercase text-text-secondary mb-2">{brand}</div>
+      
+      <h1 className="text-4xl font-bold text-white">{name}</h1>
 
-      <p className="text-primary font-bold mt-1">In Stock</p>
+      <p className={`font-bold mt-3 ${inStock ? 'text-primary' : 'text-red-500'}`}>
+        {inStock ? 'In Stock' : 'Out of Stock'}
+      </p>
 
-      <div className="flex items-center gap-4 mt-3">
-        <span className="text-3xl font-bold text-text-secondary">$1,199.00</span>
-        <span className="line-through text-text-muted-light">$1,399.00</span>
+      <div className="flex items-center gap-4 mt-4">
+        <span className="text-3xl font-bold text-primary">{price}</span>
+        {originalPrice !== price && (
+          <span className="line-through text-text-secondary">{originalPrice}</span>
+        )}
       </div>
     </div>
   );
