@@ -7,11 +7,13 @@ export default function OrderSummary() {
   const [cart, setCart] = useState([]);
   const [openCheckout, setOpenCheckout] = useState(false);
 
-  // ---------- LOAD CART ----------
+  /* ---------- LOAD CART ---------- */
 
-  const loadCart  = () => {
-  setCart(getCart());
-};
+  const loadCart = () => {
+    const data = getCart() || [];
+    setCart(data);
+  };
+
   useEffect(() => {
     loadCart();
 
@@ -24,33 +26,49 @@ export default function OrderSummary() {
     };
   }, []);
 
-  // ---------- CALCULATIONS ----------
+  /* ---------- SAFE CALCULATIONS ---------- */
 
-  const subtotal = cart.reduce(
-    (acc, item) =>
-      acc + item.numericPrice * item.qty,
-    0
-  );
-  const shipping = subtotal > 0 ? 0 : 0; // Free shipping logic
+  const subtotal = cart.reduce((acc, item) => {
 
-  const taxRate = 0.08; // 8% tax
+    // 🛡️ Defensive guards
+    const price =
+      Number(item.numericPrice) ||
+      Number(
+        (item.price || "")
+          .toString()
+          .replace(/[₹,]/g, "")
+      ) ||
+      0;
+
+    const qty = Number(item.qty) || 0;
+
+    return acc + price * qty;
+
+  }, 0);
+
+  /* ---------- SHIPPING ---------- */
+
+  const shipping = subtotal > 0 ? 149 : 0;
+
+  /* ---------- TAX ---------- */
+
+  const taxRate = 0.02;
   const tax = subtotal * taxRate;
+
+  /* ---------- TOTAL ---------- */
 
   const total = subtotal + shipping + tax;
 
-  // ---------- FORMATTER ----------
-
-  // ---------- FORMATTER ----------
+  /* ---------- FORMATTER ---------- */
 
   const format = (num) =>
     new Intl.NumberFormat("en-IN", {
       style: "currency",
       currency: "INR",
       maximumFractionDigits: 2,
-    }).format(num);
+    }).format(Number(num) || 0);
 
-
-  // ---------- UI ----------
+  /* ---------- UI ---------- */
 
   return (
     <aside
@@ -102,13 +120,15 @@ export default function OrderSummary() {
 
         <div className="flex justify-between">
           <span>Shipping</span>
-          <span className="font-medium text-[var(--color-success)]">
-            {shipping === 0 ? "Free" : format(shipping)}
+          <span className="font-medium text-white">
+            {shipping === 0
+              ? "Free"
+              : format(shipping)}
           </span>
         </div>
 
         <div className="flex justify-between">
-          <span>Tax</span>
+          <span>Tax (2%)</span>
           <span className="font-medium text-white">
             {format(tax)}
           </span>
@@ -118,6 +138,7 @@ export default function OrderSummary() {
 
       <div className="h-px bg-gray-200 dark:bg-[#233948]" />
 
+      {/* Total */}
       <div className="flex justify-between">
 
         <span className="text-lg text-white font-bold">
@@ -138,14 +159,12 @@ export default function OrderSummary() {
         Checkout
       </button>
 
-
-      {/* Checkout */}
+      {/* Checkout Modal */}
       <CheckoutModal
         open={openCheckout}
         onClose={() => setOpenCheckout(false)}
         total={total}
       />
-
 
       <p className="text-xs text-text-muted-light flex justify-center gap-1">
 
