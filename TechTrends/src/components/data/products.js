@@ -5,7 +5,12 @@ const productData = {
       id: "hp-15s-i5",
       brand: "HP",
       name: "HP 15s (Intel i5)",
-      image: "/images/hp1.avif",
+      images: [
+        "/images/hp1.avif",
+        "https://m.media-amazon.com/images/I/719ITRJEaDL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81vqCUxNRML._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81vqCUxNRML._SL1500_.jpg"
+      ],
       specs: ["Intel i5", "16GB", "512GB"],
       originalPrice: "₹64,999",
       price: "₹25,999",
@@ -14,7 +19,11 @@ const productData = {
       id: "hp-pavilion-14",
       brand: "HP",
       name: "HP Pavilion 14",
-      image: "/images/hp2.jpg",
+      images: [
+        "/images/hp2.jpg",
+        "https://in-media.apjonlinecdn.com/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/p/a/pavilion-plus-14-oski-silver-features.jpg",
+        "https://in-media.apjonlinecdn.com/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/c/0/c08679838_3.png"
+      ],
       specs: ["Intel i5", "16GB", "512GB"],
       originalPrice: "₹74,999",
       price: "₹29,999",
@@ -23,7 +32,12 @@ const productData = {
       id: "hp-victus-gaming",
       brand: "HP",
       name: "HP Victus Gaming",
-      image: "/images/hp3.jpg",
+      images: [
+        "/images/hp3.jpg",
+        "https://m.media-amazon.com/images/I/71OJHGFz5JL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81SlhsSi7gL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81aRf+jDfdL._SL1500_.jpg"
+      ],
       specs: ["16GB", "512GB", "RTX 3050"],
       originalPrice: "₹84,999",
       price: "₹33,999",
@@ -32,7 +46,12 @@ const productData = {
       id: "hp-omen-gaming",
       brand: "HP",
       name: "HP Omen Gaming",
-      image: "/images/hp4.webp",
+      images: [
+        "/images/hp4.webp",
+        "https://m.media-amazon.com/images/I/81h29Y763iL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81h29Y763iL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81xIS4KuWsL._SL1500_.jpg"
+      ],
       specs: ["16GB", "1TB", "RTX 4060"],
       originalPrice: "₹1,34,999",
       price: "₹53,999",
@@ -43,7 +62,12 @@ const productData = {
       id: "lenovo-ideapad-slim-3",
       brand: "Lenovo",
       name: "Lenovo IdeaPad Slim 3",
-      image: "/images/lenovo1.jpg",
+      images: [
+        "/images/lenovo1.jpg",
+        "https://m.media-amazon.com/images/I/61tNv3EDIAL._SL1080_.jpg",
+        "https://m.media-amazon.com/images/I/61TMROdY2gL._SL1080_.jpg",
+        "https://m.media-amazon.com/images/I/61b4V9f1PlL._SL1080_.jpg"
+      ],
       specs: ["Intel i5", "16GB", "512GB"],
       originalPrice: "₹59,999",
       price: "₹23,999",
@@ -52,7 +76,12 @@ const productData = {
       id: "lenovo-ideapad-slim-5",
       brand: "Lenovo",
       name: "Lenovo IdeaPad Slim 5",
-      image: "/images/lenovo2.jpg",
+      images: [
+        "/images/lenovo2.jpg",
+        "https://m.media-amazon.com/images/I/61Uy6ZuOpSL._SL1080_.jpg",
+        "https://m.media-amazon.com/images/I/6102Ep9jOaL._SL1080_.jpg",
+        "https://m.media-amazon.com/images/I/61Alh3O3mdL._SL1080_.jpg"
+      ],
       specs: ["Intel i5", "16GB", "512GB"],
       originalPrice: "₹74,999",
       price: "₹29,999",
@@ -61,7 +90,12 @@ const productData = {
       id: "lenovo-thinkpad-e14",
       brand: "Lenovo",
       name: "Lenovo ThinkPad E14",
-      image: "/images/lenovo3.jpg",
+      images: [ 
+        "/images/lenovo3.jpg",
+        "https://m.media-amazon.com/images/I/31kHtgfKnZL.jpg",
+        "https://m.media-amazon.com/images/I/31h1CiTFZYL.jpg",
+        "https://m.media-amazon.com/images/I/31h1CiTFZYL.jpg",
+      ],
       specs: ["Intel i5", "16GB", "512GB"],
       originalPrice: "₹84,999",
       price: "₹33,999",
@@ -70,7 +104,12 @@ const productData = {
       id: "lenovo-loq-gaming",
       brand: "Lenovo",
       name: "Lenovo LOQ Gaming",
-      image: "/images/lenovo4.jpg",
+      images: [
+        "/images/lenovo4.jpg",
+        "https://m.media-amazon.com/images/I/51E7QcxKAJL._SY300_SX300_QL70_FMwebp_.jpg",
+        "https://m.media-amazon.com/images/I/71br1pV8EML._SL1080_.jpg",
+        "https://m.media-amazon.com/images/I/61yGqG0I9RL._SL1080_.jpg"
+      ],
       specs: ["16GB", "512GB", "RTX 4050"],
       originalPrice: "₹89,999",
       price: "₹35,999",
@@ -81,7 +120,12 @@ const productData = {
       id: "dell-inspiron-15",
       brand: "Dell",
       name: "Dell Inspiron 15",
-      image: "/images/dell1.avif",
+      images: [ 
+        "/images/dell1.avif",
+        "https://m.media-amazon.com/images/I/81jNKE-eeYL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/6176uI640CL._SL1080_.jpg",
+        "https://m.media-amazon.com/images/I/6176uI640CL._SL1080_.jpg"
+      ],
       specs: ["Intel i5", "16GB", "512GB"],
       originalPrice: "₹69,999",
       price: "₹27,999",
@@ -90,7 +134,12 @@ const productData = {
       id: "dell-vostro-14",
       brand: "Dell",
       name: "Dell Vostro 14",
-      image: "/images/dell2.jpg",
+      images: [
+        "/images/dell2.jpg",
+        "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/vostro-notebooks/14-3440/media-gallery/notebook-vostro-14-3440-nt-gy-gallery-1.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=664&qlt=100,1&resMode=sharp2&size=664,402&chrss=full",
+        "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/vostro-notebooks/14-3440/media-gallery/notebook-vostro-14-3440-nt-gy-gallery-4.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=664&qlt=100,1&resMode=sharp2&size=664,402&chrss=full",
+        "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/vostro-notebooks/14-3440/media-gallery/notebook-vostro-14-3440-nt-gy-gallery-2.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=512&qlt=100,1&resMode=sharp2&size=512,402&chrss=full"
+      ],
       specs: ["Intel i5", "16GB", "512GB"],
       originalPrice: "₹64,999",
       price: "₹25,999",
@@ -99,7 +148,12 @@ const productData = {
       id: "dell-xps-13",
       brand: "Dell",
       name: "Dell XPS 13",
-      image: "/images/dell3.avif",
+      images: [ 
+        "/images/dell3.avif",
+        "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9350/media-gallery/platinum/notebook-xps-13-9350-t-oled-sl-gallery-4.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=679&qlt=100,1&resMode=sharp2&size=679,402&chrss=full",
+        "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9350/media-gallery/platinum/notebook-xps-13-9350-t-oled-sl-gallery-5.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=681&qlt=100,1&resMode=sharp2&size=681,402&chrss=full",
+        "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9350/media-gallery/platinum/notebook-xps-13-9350-t-oled-sl-gallery-3.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=547&qlt=100,1&resMode=sharp2&size=547,402&chrss=full",
+      ],
       specs: ["Intel i7", "16GB", "512GB"],
       originalPrice: "₹1,59,999",
       price: "₹63,999",
@@ -110,7 +164,12 @@ const productData = {
       id: "asus-vivobook-15",
       brand: "ASUS",
       name: "ASUS Vivobook 15",
-      image: "/images/asus1.webp",
+      images: [ 
+        "/images/asus1.webp",
+        "https://m.media-amazon.com/images/I/81CuUvGGwOL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81CuUvGGwOL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/91bOog4NSVL._SL1500_.jpg",
+      ],
       specs: ["Intel i5", "16GB", "512GB"],
       originalPrice: "₹62,999",
       price: "₹25,199",
@@ -119,7 +178,12 @@ const productData = {
       id: "asus-vivobook-s14-oled",
       brand: "ASUS",
       name: "ASUS Vivobook S14 OLED",
-      image: "/images/asus2.jpg",
+      images: [
+        "/images/asus2.jpg",
+        "https://m.media-amazon.com/images/I/719wIJ+WNRL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81gtl-5QruL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/710iAwH5wiL._SL1500_.jpg",
+      ],
       specs: ["OLED", "16GB", "512GB"],
       originalPrice: "₹84,999",
       price: "₹33,999",
@@ -128,7 +192,12 @@ const productData = {
       id: "asus-tuf-f15",
       brand: "ASUS",
       name: "ASUS TUF Gaming F15",
-      image: "/images/asus3.jpg",
+      images: [
+        "/images/asus3.jpg",
+        "https://m.media-amazon.com/images/I/8185UwG96cL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81H41Oi5iTL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81+0uYeNiDL._SL1500_.jpg"
+      ],
       specs: ["16GB", "512GB", "RTX 3050"],
       originalPrice: "₹94,999",
       price: "₹37,999",
@@ -137,7 +206,12 @@ const productData = {
       id: "asus-rog-strix-g16",
       brand: "ASUS",
       name: "ASUS ROG Strix G16",
-      image: "/images/asus4.png",
+      images: [ 
+        "/images/asus4.png",
+        "https://m.media-amazon.com/images/I/81XNtKPd1CL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81XNtKPd1CL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81K6eA26GtL._SL1500_.jpg"
+      ],
       specs: ["16GB", "1TB", "RTX 4060"],
       originalPrice: "₹1,59,999",
       price: "₹63,999",
@@ -148,7 +222,12 @@ const productData = {
       id: "acer-aspire-7",
       brand: "Acer",
       name: "Acer Aspire 7",
-      image: "/images/acer1.jpg",
+      images: [
+        "/images/acer1.jpg",
+        "https://static-ecapac.acer.com/media/catalog/product/a/s/aspire_7--core_5_3_un.34psi.00g.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=500&width=500&canvas=500:500",
+        "https://static-ecapac.acer.com/media/catalog/product/a/c/acer-aspire7-3050-f2_un.34psi.00g.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=500&width=500&canvas=500:500",
+        "https://static-ecapac.acer.com/media/catalog/product/a/c/acer-aspire7-3050-f3_un.34psi.00g.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=500&width=500&canvas=500:500"
+      ],
       specs: ["Intel i5", "16GB", "512GB"],
       originalPrice: "₹59,999",
       price: "₹23,999",
@@ -157,7 +236,12 @@ const productData = {
       id: "acer-nitro-v",
       brand: "Acer",
       name: "Acer Nitro V Gaming",
-      image: "/images/acer2.jpg",
+      images: [ 
+        "/images/acer2.jpg",
+        "https://m.media-amazon.com/images/I/91ks1QaRlLL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71CwIZcRbhL._SL1200_.jpg",
+        "https://m.media-amazon.com/images/I/71CwIZcRbhL._SL1200_.jpg"
+      ],
       specs: ["16GB", "512GB", "RTX 4050"],
       originalPrice: "₹84,999",
       price: "₹33,999",
@@ -168,7 +252,12 @@ const productData = {
       id: "samsung-galaxy-book-4",
       brand: "Samsung",
       name: "Samsung Galaxy Book 4",
-      image: "/images/acer3.jpg",
+      images: [
+        "/images/acer3.jpg",
+        "https://m.media-amazon.com/images/I/61eZJqW4KKL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61Y7AXO2tVL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61PwigmYcNL._SL1500_.jpg"
+      ],
       specs: ["Intel i5", "16GB", "512GB"],
       originalPrice: "₹79,999",
       price: "₹31,999",
@@ -180,9 +269,11 @@ const productData = {
       id: "zfold3",
       brand: "Samsung",
       name: "Galaxy Z Fold3 5G",
-      image:
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=300&fit=crop",
-
+      images: [
+        "https://rukmini1.flixcart.com/image/1500/1500/ksqeky80/mobile/x/7/1/galaxy-z-fold3-5g-sm-f926bzgdinu-samsung-original-imag68q6hpdwmngw.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/ksqeky80/mobile/y/c/w/galaxy-z-fold3-5g-sm-f926bzgdinu-samsung-original-imag68q6zhn4ehzn.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/ksnjp8w0/mobile/g/u/r/galaxy-z-fold3-5g-sm-f926bzkdinu-samsung-original-imag662aygmrg2qg.jpeg?q=70"
+      ],
       variants: [
         {
           specs: ["12GB", "256GB", "Foldable"],
@@ -200,9 +291,12 @@ const productData = {
       id: "zfold4",
       brand: "Samsung",
       name: "Galaxy Z Fold4 5G",
-      image:
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=300&fit=crop",
-
+      images: [
+        "https://m.media-amazon.com/images/I/61cInRWmClL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71SftM0QYRL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61LSgKwsktL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61+s+yrWo-L._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["12GB", "256GB", "Foldable"],
@@ -225,9 +319,12 @@ const productData = {
       id: "zfold5",
       brand: "Samsung",
       name: "Galaxy Z Fold5 5G",
-      image:
-        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=300&fit=crop",
-
+      images: [
+        "https://m.media-amazon.com/images/I/71XwXWxa6QL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61qVnohMTPL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71hZBfLK8oL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61ZqdMLZDaL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["12GB", "256GB", "Foldable"],
@@ -250,6 +347,12 @@ const productData = {
       id: "zfold6",
       brand: "Samsung",
       name: "Galaxy Z Fold6 5G",
+      images: [
+        "https://m.media-amazon.com/images/I/61Hhrr0bFWL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61Hhrr0bFWL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71Gg-PaJi+L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71QvopDcKcL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["12GB", "256GB", "Foldable"],
@@ -272,6 +375,12 @@ const productData = {
       id: "zfold7",
       brand: "Samsung",
       name: "Galaxy Z Fold7 5G",
+      images: [
+        "https://m.media-amazon.com/images/I/61Q1AgNSO3L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61gZ4ohtc-L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/711MEimNqmL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51x1H8+uBTL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["12GB", "256GB", "Foldable"],
@@ -294,6 +403,12 @@ const productData = {
       id: "zflip3",
       brand: "Samsung",
       name: "Galaxy Z Flip3 5G",
+      images: [
+        "https://m.media-amazon.com/images/I/71f2I8cltBL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61xDJ80iKrL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71BdTQXrrQL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61aIL9DWLkL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["8GB", "128GB", "Flip"],
@@ -311,6 +426,14 @@ const productData = {
       id: "zflip4",
       brand: "Samsung",
       name: "Galaxy Z Flip4 5G",
+      images: [
+        "https://m.media-amazon.com/images/I/610PI9zfgxL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61KF+txeSVL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61Exokok7YL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61UpZWT9DHL._SL1500_.jpg",
+      
+
+      ],
       variants: [
         {
           specs: ["8GB", "128GB", "Flip"],
@@ -328,6 +451,12 @@ const productData = {
       id: "zflip5",
       brand: "Samsung",
       name: "Galaxy Z Flip5",
+      images: [
+        "https://m.media-amazon.com/images/I/61Tl1z+Hn0L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/614GLZ7wkyL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71hilJccpHL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61aJkCfp+jL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["8GB", "256GB", "Flip"],
@@ -345,6 +474,12 @@ const productData = {
       id: "zflip6",
       brand: "Samsung",
       name: "Galaxy Z Flip6 5G",
+      images: [
+        "https://m.media-amazon.com/images/I/51OsreWvSYL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/41DWXbGY0lL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51myCNRyf9L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/41fvBMd4eIL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["12GB", "256GB", "Flip"],
@@ -362,6 +497,12 @@ const productData = {
       id: "zflip7",
       brand: "Samsung",
       name: "Galaxy Z Flip7 5G",
+      images: [
+        "https://m.media-amazon.com/images/I/61b2aZ5II-L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71UhtHpN14L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71Ol9c7mCrL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71TUfQGaNgL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["12GB", "256GB", "Flip"],
@@ -379,6 +520,12 @@ const productData = {
       id: "zflip7-fe",
       brand: "Samsung",
       name: "Galaxy Z Flip7 FE 5G",
+      images: [
+        "https://m.media-amazon.com/images/I/61L+eT+cG+L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71Cs3U2XLaL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71RZc73DsSL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51pvElMua7L._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["8GB", "128GB", "Flip"],
@@ -398,9 +545,12 @@ const productData = {
       id: "galaxy-s23",
       brand: "Samsung",
       name: "Galaxy S23",
-      image:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
-
+      images: [
+        "https://m.media-amazon.com/images/I/71RnJXDexML._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61JW7tAxBML._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71Tas55dVKL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/6168dvBwOdL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["8GB", "128GB", "5G"],
@@ -418,9 +568,12 @@ const productData = {
       id: "galaxy-s23-plus",
       brand: "Samsung",
       name: "Galaxy S23+",
-      image:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
-
+      images: [
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/8/9/y/-original-imagmg6gzymct4b6.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/y/d/c/-original-imagzm8p5vtrszrj.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/w/9/6/-original-imagmg6gvvh2z9av.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/p/n/h/-original-imagmg6gutzapawq.jpeg?q=70"
+      ],
       variants: [
         {
           specs: ["8GB", "256GB", "5G"],
@@ -438,9 +591,12 @@ const productData = {
       id: "galaxy-s23-ultra",
       brand: "Samsung",
       name: "Galaxy S23 Ultra",
-      image:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
-
+      images: [
+        "https://m.media-amazon.com/images/I/71OXmy3NMCL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81ZPsNFlRsL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81ZPsNFlRsL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71QXh0C5KaL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["8GB", "256GB", "5G"],
@@ -463,9 +619,12 @@ const productData = {
       id: "galaxy-s24",
       brand: "Samsung",
       name: "Galaxy S24",
-      image:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
-
+      images: [
+       "https://m.media-amazon.com/images/I/21AOVlMqBOL.jpg",
+       "https://m.media-amazon.com/images/I/51T-y47WRLL.jpg",
+       "https://m.media-amazon.com/images/I/61hDW8GjSgL.jpg",
+       "https://m.media-amazon.com/images/I/51joWDTxo+L.jpg"
+      ],
       variants: [
         {
           specs: ["8GB", "128GB", "AI"],
@@ -488,8 +647,12 @@ const productData = {
       id: "galaxy-s24-plus",
       brand: "Samsung",
       name: "Galaxy S24+",
-      image:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
+      images: [
+        "https://m.media-amazon.com/images/I/71j6POXc0uL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71BIup-4aBL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71BIup-4aBL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/512UoOCc3lL._SL1200_.jpg"
+      ],
 
       variants: [
         {
@@ -508,9 +671,12 @@ const productData = {
       id: "galaxy-s24-ultra",
       brand: "Samsung",
       name: "Galaxy S24 Ultra",
-      image:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
-
+      images: [
+        "https://m.media-amazon.com/images/I/71L4Bb3ebvL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71L4Bb3ebvL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71VNuwoQtxL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71VNuwoQtxL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["12GB", "256GB", "AI"],
@@ -533,9 +699,12 @@ const productData = {
       id: "galaxy-s25",
       brand: "Samsung",
       name: "Galaxy S25",
-      image:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
-
+      images: [
+        "https://m.media-amazon.com/images/I/61p3FwE31-L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61tLhXIzMtL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61tLhXIzMtL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81aGUVkeY-L._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["12GB", "256GB", "AI"],
@@ -553,9 +722,9 @@ const productData = {
       id: "galaxy-s25-plus",
       brand: "Samsung",
       name: "Galaxy S25+",
-      image:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
-
+      images: [
+       "https://m.media-amazon.com/images/I/613kTZdzxEL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["12GB", "256GB", "AI"],
@@ -573,8 +742,12 @@ const productData = {
       id: "galaxy-s25-ultra",
       brand: "Samsung",
       name: "Galaxy S25 Ultra",
-      image:
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
+      images: [
+       "https://m.media-amazon.com/images/I/41WyX+E04cL._SY300_SX300_QL70_FMwebp_.jpg",
+       "https://m.media-amazon.com/images/I/71VNuwoQtxL._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/71AUJGsLFRL._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/71AUJGsLFRL._SL1500_.jpg"
+      ],
 
       variants: [
         {
@@ -599,9 +772,12 @@ const productData = {
       id: "iphone-16",
       brand: "Apple",
       name: "iPhone 16",
-      image:
-        "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=300&fit=crop",
-
+      images: [
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/h/u/i/-original-imahgfmyczqxhtm2.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/j/o/f/-original-imahfvx3gfzzy2uk.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/m/g/x/-original-imahfvx3vtgphzga.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/b/k/1/-original-imahfvx3yzjcyufw.jpeg?q=70"
+      ],
       variants: [
         {
           specs: ["128GB", "A18", "5G"],
@@ -625,9 +801,12 @@ const productData = {
       id: "iphone-16-pro",
       brand: "Apple",
       name: "iPhone 16 Pro",
-      image:
-        "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=300&fit=crop",
-
+      images: [
+        "https://m.media-amazon.com/images/I/61Ony8rgwEL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51njdfo0QXL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71qwUZC36YL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81oC53mwCPL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["128GB", "A18 Pro", "Titanium"],
@@ -655,9 +834,12 @@ const productData = {
       id: "iphone-16-pro-max",
       brand: "Apple",
       name: "iPhone 16 Pro Max",
-      image:
-        "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=300&fit=crop",
-
+      images: [
+        "https://m.media-amazon.com/images/I/61Ony8rgwEL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51njdfo0QXL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71qwUZC36YL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81oC53mwCPL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["256GB", "A18 Pro", "Titanium"],
@@ -680,9 +862,12 @@ const productData = {
       id: "iphone-14",
       brand: "Apple",
       name: "iPhone 14",
-      image:
-        "https://images.unsplash.com/photo-1663499482523-1c0d8271c1ac?w=400&h=300&fit=crop",
-
+      images: [
+       "https://m.media-amazon.com/images/I/61B0+qQriPL._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/51tfF8TGyAL._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/71KdlxeM59L._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/711JE+dD1KL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["128GB", "A15", "5G"],
@@ -705,9 +890,12 @@ const productData = {
       id: "iphone-14-plus",
       brand: "Apple",
       name: "iPhone 14 Plus",
-      image:
-        "https://images.unsplash.com/photo-1663499482523-1c0d8271c1ac?w=400&h=300&fit=crop",
-
+     images: [
+       "https://m.media-amazon.com/images/I/61B0+qQriPL._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/51tfF8TGyAL._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/71KdlxeM59L._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/711JE+dD1KL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["128GB", "A15", "5G"],
@@ -730,7 +918,12 @@ const productData = {
       id: "iphone-14-pro",
       brand: "Apple",
       name: "iPhone 14 Pro",
-
+      images: [
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/n/j/d/-original-imaghxemx2v9wyxa.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/s/p/d/-original-imaghxemhgfzjgja.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/h/r/e/-original-imaghxeeme2n7hy7.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/g/p/6/-original-imaghxem3utgrtyg.jpeg?q=70"
+      ],
       variants: [
         {
           specs: ["128GB", "A16 Pro", "5G"],
@@ -758,7 +951,12 @@ const productData = {
       id: "iphone-14-pro-max",
       brand: "Apple",
       name: "iPhone 14 Pro Max",
-
+       images: [
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/n/j/d/-original-imaghxemx2v9wyxa.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/s/p/d/-original-imaghxemhgfzjgja.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/h/r/e/-original-imaghxeeme2n7hy7.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/g/p/6/-original-imaghxem3utgrtyg.jpeg?q=70"
+      ],
       variants: [
         {
           specs: ["128GB", "A16 Pro", "5G"],
@@ -787,9 +985,12 @@ const productData = {
       id: "iphone-15",
       brand: "Apple",
       name: "iPhone 15",
-      image:
-        "https://images.unsplash.com/photo-1694530967538-b43e4bfea305?w=400&h=300&fit=crop",
-
+      images: [
+       "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/d/k/t/-original-imah4xe6cff8cejm.jpeg?q=70",
+       "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/h/d/9/-original-imagtc2qzgnnuhxh.jpeg?q=70",
+       "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/4/b/j/-original-imah4xe6hwmfyxdn.jpeg?q=70",
+       "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/u/m/3/-original-imagtc5ffhbausfy.jpeg?q=70"
+      ],
       variants: [
         {
           specs: ["128GB", "A16", "5G"],
@@ -814,9 +1015,12 @@ const productData = {
       id: "iphone-15-plus",
       brand: "Apple",
       name: "iPhone 15 Plus",
-      image:
-        "https://images.unsplash.com/photo-1694530967538-b43e4bfea305?w=400&h=300&fit=crop",
-
+      images: [
+       "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/d/k/t/-original-imah4xe6cff8cejm.jpeg?q=70",
+       "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/h/d/9/-original-imagtc2qzgnnuhxh.jpeg?q=70",
+       "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/4/b/j/-original-imah4xe6hwmfyxdn.jpeg?q=70",
+       "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/u/m/3/-original-imagtc5ffhbausfy.jpeg?q=70"
+      ],
       variants: [
         {
           specs: ["128GB", "A16", "5G"],
@@ -841,9 +1045,12 @@ const productData = {
       id: "iphone-15-pro",
       brand: "Apple",
       name: "iPhone 15 Pro",
-      image:
-        "https://images.unsplash.com/photo-1694530967538-b43e4bfea305?w=400&h=300&fit=crop",
-
+      images: [
+       "https://m.media-amazon.com/images/I/81c50PU+lpL._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/81c50PU+lpL._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/71LB1euow1L._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/71TSx9D2BVL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["128GB", "A17 Pro", "Titanium"],
@@ -873,9 +1080,12 @@ const productData = {
       id: "iphone-15-pro-max",
       brand: "Apple",
       name: "iPhone 15 Pro Max",
-      image:
-        "https://images.unsplash.com/photo-1694530967538-b43e4bfea305?w=400&h=300&fit=crop",
-
+      images: [
+       "https://m.media-amazon.com/images/I/81c50PU+lpL._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/81c50PU+lpL._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/71LB1euow1L._SL1500_.jpg",
+       "https://m.media-amazon.com/images/I/71TSx9D2BVL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["256GB", "A17 Pro", "Titanium"],
@@ -899,6 +1109,12 @@ const productData = {
       id: "iphone-17",
       brand: "Apple",
       name: "iPhone 17",
+      images: [
+        "https://m.media-amazon.com/images/I/617O+RkwdPL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/91T1qDc+uGL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/715MT7SzKiL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/716ITcuqXLL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["256GB", "A19", "5G"],
@@ -916,6 +1132,12 @@ const productData = {
       id: "iphone-17-air",
       brand: "Apple",
       name: "iPhone 17 Air",
+      images: [
+        "https://m.media-amazon.com/images/I/61Ce-6B6x+L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61izXOz7xLL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51mq9k3RAFL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71qmq2lXNuL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["256GB", "A19", "Ultra Thin"],
@@ -938,6 +1160,12 @@ const productData = {
       id: "iphone-17-pro",
       brand: "Apple",
       name: "iPhone 17 Pro",
+      images: [
+        "https://m.media-amazon.com/images/I/618vU2qKXQL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/91JZmCrB9aL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71FKiQAdCKL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71FKiQAdCKL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["256GB", "A19 Pro", "Titanium"],
@@ -960,7 +1188,12 @@ const productData = {
       id: "iphone-17-pro-max",
       brand: "Apple",
       name: "iPhone 17 Pro Max",
-
+      images: [
+        "https://m.media-amazon.com/images/I/618vU2qKXQL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/91JZmCrB9aL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71FKiQAdCKL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71FKiQAdCKL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["256GB", "A19 Pro", "Titanium"],
@@ -1134,9 +1367,12 @@ const productData = {
       id: "galaxy-buds-3-pro",
       brand: "Samsung",
       name: "Galaxy Buds 3 Pro",
-      image:
-        "https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=400&h=300&fit=crop",
-
+      images: [
+        "https://m.media-amazon.com/images/I/71ke2BEdIhL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71ke2BEdIhL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71ke2BEdIhL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71hyYLmhK5L._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["ANC", "360 Audio", "Premium"],
@@ -1150,9 +1386,12 @@ const productData = {
       id: "marshall-motif-2",
       brand: "Marshall",
       name: "Motif II ANC TWS Earbuds",
-      image:
-        "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=300&fit=crop",
-
+      images: [
+        "https://m.media-amazon.com/images/I/71t+kVzovEL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/A1U1-jIwxJL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/A1zCZV272oL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/A1fA2J76GdL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["ANC", "Marshall", "Premium"],
@@ -1166,9 +1405,12 @@ const productData = {
       id: "devialet-gemini-2",
       brand: "Devialet",
       name: "Gemini II TWS Earbuds",
-      image:
-        "https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=400&h=300&fit=crop",
-
+      images: [
+        "https://m.media-amazon.com/images/I/61YSRoRQzML._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71g5uUmn2bL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71g5uUmn2bL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71QhQfeoapL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["Premium", "ANC", "HiFi"],
@@ -1435,7 +1677,7 @@ function normalizeProducts(data) {
         ...item,
         id,
         category,
-        image: item.image || null,
+        images: item.image || null,
         images: item.images || (item.image ? [item.image] : []),
         variants,
         minPrice,
