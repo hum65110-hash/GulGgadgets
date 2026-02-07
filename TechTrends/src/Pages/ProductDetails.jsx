@@ -6,22 +6,23 @@ import Breadcrumbs from "../components/product/Breadcrumbs";
 import ImageGallery from "../components/product/ImageGallery";
 import ProductInfo from "../components/product/ProductInfo";
 import SpecsGrid from "../components/product/SpecsGrid";
-// import PurchaseOptions from "../components/product/PurchaseOptions";
+import PurchaseOptions from "../components/product/PurchaseOptions";
 import FrequentlyBought from "../components/product/FrequentlyBought";
 import StickyBuyBar from "../components/product/StickyBuyBar";
-import { getWishlist, saveWishlist, getCart, saveCart} from "../components/utils/storage";
+import {
+  getWishlist,
+  saveWishlist,
+  getCart,
+  saveCart,
+} from "../components/utils/storage";
 
 /* ---------------- HELPERS ---------------- */
 
-const getAllProducts = () =>
-  Object.values(normalizedProductData).flat();
+const getAllProducts = () => Object.values(normalizedProductData).flat();
 
-const getProductById = (id) =>
-  getAllProducts().find((p) => p.id === id);
+const getProductById = (id) => getAllProducts().find((p) => p.id === id);
 
-
-const getStorage = (key) =>
-  JSON.parse(localStorage.getItem(key)) || [];
+const getStorage = (key) => JSON.parse(localStorage.getItem(key)) || [];
 
 const saveStorage = (key, data) =>
   localStorage.setItem(key, JSON.stringify(data));
@@ -31,22 +32,16 @@ const saveStorage = (key, data) =>
 export default function ProductDetails() {
   const { productId } = useParams();
 
-  const storedId =
-    productId ||
-    localStorage.getItem("selectedProductId");
+  const storedId = productId || localStorage.getItem("selectedProductId");
 
   const product = getProductById(storedId);
 
   /* ---------- VARIANT STATE ---------- */
 
-  const [variantIndex, setVariantIndex] =
-    useState(0);
+  const [variantIndex, setVariantIndex] = useState(0);
 
   useEffect(() => {
-    const saved =
-      localStorage.getItem(
-        "selectedVariantIndex"
-      );
+    const saved = localStorage.getItem("selectedVariantIndex");
 
     if (saved) setVariantIndex(parseInt(saved));
   }, []);
@@ -61,127 +56,108 @@ export default function ProductDetails() {
 
   /* ---------- NORMALIZE PRODUCT ---------- */
 
- /* ---------- NORMALIZE PRODUCT ---------- */
+  /* ---------- NORMALIZE PRODUCT ---------- */
 
-const hasVariants =
-  Array.isArray(product.variants) &&
-  product.variants.length > 0;
+  const hasVariants =
+    Array.isArray(product.variants) && product.variants.length > 0;
 
-// 🛡️ Clamp index safely
-const safeVariantIndex = Math.min(
-  variantIndex,
-  (product.variants?.length || 1) - 1
-);
+  // 🛡️ Clamp index safely
+  const safeVariantIndex = Math.min(
+    variantIndex,
+    (product.variants?.length || 1) - 1,
+  );
 
-const activeVariant = hasVariants
-  ? product.variants[safeVariantIndex]
-  : null;
+  const activeVariant = hasVariants ? product.variants[safeVariantIndex] : null;
 
-const price = hasVariants
-  ? activeVariant?.price
-  : product.price;
+  const price = hasVariants ? activeVariant?.price : product.price;
 
-const originalPrice = hasVariants
-  ? activeVariant?.originalPrice
-  : product.originalPrice;
+  const originalPrice = hasVariants
+    ? activeVariant?.originalPrice
+    : product.originalPrice;
 
-const specs = hasVariants
-  ? activeVariant?.specs || []
-  : product.specs || [];
+  const specs = hasVariants ? activeVariant?.specs || [] : product.specs || [];
 
-  const images =
-    product.images ||
-    (product.image ? [product.image] : []);
+  const images = product.images || (product.image ? [product.image] : []);
 
   /* ---------- CART ---------- */
-const variant = hasVariants
-  ? product.variants[safeVariantIndex]
-  : {
-      id: `${product.id}-v0`,
-      specs: product.specs || [],
-      price: product.price,
-      numericPrice: 0,
-    };
+  const variant = hasVariants
+    ? product.variants[safeVariantIndex]
+    : {
+        id: `${product.id}-v0`,
+        specs: product.specs || [],
+        price: product.price,
+        numericPrice: 0,
+      };
 
+  const addToCart = () => {
+    const cart = getCart();
 
-const addToCart = () => {
-  const cart = getCart();
+    const existing = cart.find(
+      (i) => i.productId === product.id && i.variantId === variant.id,
+    );
 
-  const existing = cart.find(
-    (i) =>
-      i.productId === product.id &&
-      i.variantId === variant.id
-  );
+    if (existing) existing.qty += 1;
+    else {
+      cart.push({
+        productId: product.id,
+        variantId: variant.id,
+        category: product.category,
+        name: product.name,
+        brand: product.brand,
+        image: product.image,
+        specs: variant.specs,
+        price: variant.price,
+        numericPrice: variant.numericPrice,
+        qty: 1,
+      });
+    }
 
-  if (existing) existing.qty += 1;
-  else {
-    cart.push({
-      productId: product.id,
-      variantId: variant.id,
-      category: product.category,
-      name: product.name,
-      brand: product.brand,
-      image: product.image,
-      specs: variant.specs,
-      price: variant.price,
-      numericPrice: variant.numericPrice,
-      qty: 1,
-    });
-  }
+    saveCart(cart);
+    toast.success("Added to cart");
+  };
 
-  saveCart(cart);
-  toast.success("Added to cart");
-
-};
-
-
-useEffect(() => {
-  setVariantIndex(0);
-  localStorage.setItem("selectedVariantIndex", 0);
-}, [product.id]);
-
+  useEffect(() => {
+    setVariantIndex(0);
+    localStorage.setItem("selectedVariantIndex", 0);
+  }, [product.id]);
 
   /* ---------- WISHLIST ---------- */
-const addToWishlist = () => {
-  let wishlist = getWishlist();
+  const addToWishlist = () => {
+    let wishlist = getWishlist();
 
-  const exists = wishlist.some(
-    (w) =>
-      w.productId === product.id &&
-      w.variantId === variant.id
-  );
+    const exists = wishlist.some(
+      (w) => w.productId === product.id && w.variantId === variant.id,
+    );
 
-  if (!exists) {
-    wishlist.push({
-      productId: product.id,
-      variantId: variant.id,
-      category: product.category,
-      name: product.name,
-      brand: product.brand,
-      image: product.image,
-      specs: variant.specs,
-      price: variant.price,
-      numericPrice: variant.numericPrice,
-    });
-  }
+    if (!exists) {
+      wishlist.push({
+        productId: product.id,
+        variantId: variant.id,
+        category: product.category,
+        name: product.name,
+        brand: product.brand,
+        image: product.image,
+        specs: variant.specs,
+        price: variant.price,
+        numericPrice: variant.numericPrice,
+      });
+    }
 
-  saveWishlist(wishlist);
-  toast.success("Added to Wishlist");
-};
+    saveWishlist(wishlist);
+    toast.success("Added to Wishlist");
+  };
 
   /* ---------- UI ---------- */
 
   return (
     <div className="bg-background-dark min-h-screen">
       <div className="max-w-[1440px] mx-auto">
-
         <Breadcrumbs
           category={product.category || "Product"}
           productName={product.name}
         />
 
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 px-4 lg:px-40 py-6">
-
           {/* IMAGE GALLERY */}
           <div className="lg:col-span-7">
             <ImageGallery images={images} />
@@ -189,13 +165,11 @@ const addToWishlist = () => {
 
           {/* PRODUCT INFO */}
           <div className="lg:col-span-5 space-y-8">
-
             <ProductInfo
-  product={product}
-  variantIndex={variantIndex}
-  onVariantChange={setVariantIndex}
-/>
-
+              product={product}
+              variantIndex={variantIndex}
+              onVariantChange={setVariantIndex}
+            />
 
             <SpecsGrid
               specs={specs.map((s, i) => ({
@@ -205,13 +179,12 @@ const addToWishlist = () => {
               }))}
             />
 
-            {/* <PurchaseOptions
+            <PurchaseOptions
               onAddToCart={addToCart}
               onAddToWishlist={
                 addToWishlist
               }
-            /> */}
-
+            />
           </div>
         </section>
       </div>
@@ -219,11 +192,10 @@ const addToWishlist = () => {
       <FrequentlyBought />
 
       <StickyBuyBar
-  product={product}
-  variantIndex={variantIndex}
-  onAddToCart={addToCart}
-/>
-
+        product={product}
+        variantIndex={variantIndex}
+        onAddToCart={addToCart}
+      />
     </div>
   );
 }

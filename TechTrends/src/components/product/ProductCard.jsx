@@ -12,14 +12,20 @@ export default function ProductCard({ product, onClick }) {
   const navigate = useNavigate();
 
   const {
-    id: productId,
-    brand,
-    name,
-    image,
-    specs = [],
-    category,
-    variants,
-  } = product;
+  id: productId,
+  brand,
+  name,
+  images = [],
+  specs = [],
+  category,
+  variants,
+} = product;
+
+
+const image =
+  images?.[0] ||
+  "https://via.placeholder.com/300x200?text=No+Image";
+
 
   const defaultVariant = variants[0];
 

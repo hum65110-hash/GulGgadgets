@@ -30,34 +30,7 @@ export default function CategoryGrid() {
       icon: "watch",
       link: "/wearables"
     },
-    {
-      title: "Tablets",
-      image: "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&h=400&fit=crop",
-      productCount: 98,
-      icon: "tablet_mac",
-      link: "/tablets"
-    },
-    {
-      title: "Gaming",
-      image: "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=600&h=400&fit=crop",
-      productCount: 215,
-      icon: "stadia_controller",
-      link: "/gaming"
-    },
-    {
-      title: "Cameras",
-      image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop",
-      productCount: 87,
-      icon: "photo_camera",
-      link: "/cameras"
-    },
-    {
-      title: "Smart Home",
-      image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&h=400&fit=crop",
-      productCount: 143,
-      icon: "home",
-      link: "/smart-home"
-    }
+   
   ];
 
   return (
