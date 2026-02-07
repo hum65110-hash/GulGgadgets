@@ -1,11 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { normalizedProductData } from "../components/data/products";
-
 import toast from "react-hot-toast";
-
-
-
 import Breadcrumbs from "../components/product/Breadcrumbs";
 import ImageGallery from "../components/product/ImageGallery";
 import ProductInfo from "../components/product/ProductInfo";
@@ -13,7 +9,7 @@ import SpecsGrid from "../components/product/SpecsGrid";
 import PurchaseOptions from "../components/product/PurchaseOptions";
 import FrequentlyBought from "../components/product/FrequentlyBought";
 import StickyBuyBar from "../components/product/StickyBuyBar";
-import { getWishlist, saveWishlist } from "../components/utils/storage";
+import { getWishlist, saveWishlist, getCart, saveCart} from "../components/utils/storage";
 
 /* ---------------- HELPERS ---------------- */
 
@@ -172,10 +168,11 @@ const addToWishlist = () => {
           <div className="lg:col-span-5 space-y-8">
 
             <ProductInfo
-              onVariantChange={(i) =>
-                setVariantIndex(i)
-              }
-            />
+  product={product}
+  variantIndex={variantIndex}
+  onVariantChange={setVariantIndex}
+/>
+
 
             <SpecsGrid
               specs={specs.map((s, i) => ({
@@ -199,10 +196,11 @@ const addToWishlist = () => {
       <FrequentlyBought />
 
       <StickyBuyBar
-        name={product.name}
-        price={price}
-        onAddToCart={addToCart}
-      />
+  product={product}
+  variantIndex={variantIndex}
+  onAddToCart={addToCart}
+/>
+
     </div>
   );
 }

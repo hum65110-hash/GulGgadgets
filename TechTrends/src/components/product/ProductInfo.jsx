@@ -14,24 +14,11 @@ const getProductById = (id) =>
 /* ---------------- COMPONENT ---------------- */
 
 export default function ProductInfo({
-  onVariantChange, // 👈 send variant to parent
+  product,
+  variantIndex,
+  onVariantChange,
   inStock: propInStock = true
 }) {
-  const [product, setProduct] = useState(null);
-  const [selectedVariant, setSelectedVariant] =
-    useState(0);
-
-  /* ---------- LOAD PRODUCT ---------- */
-
-  useEffect(() => {
-    const storedId =
-      localStorage.getItem("selectedProductId");
-
-    if (!storedId) return;
-
-    const found = getProductById(storedId);
-    if (found) setProduct(found);
-  }, []);
 
   if (!product) return null;
 
@@ -39,7 +26,7 @@ export default function ProductInfo({
     product.variants?.length > 0;
 
   const activeVariant = hasVariants
-    ? product.variants[selectedVariant]
+    ? product.variants[variantIndex]
     : null;
 
   const price = hasVariants
@@ -53,37 +40,27 @@ export default function ProductInfo({
   const inStock =
     product.inStock ?? propInStock;
 
-  /* ---------- HANDLE VARIANT CLICK ---------- */
-
   const handleVariantClick = (index) => {
-    setSelectedVariant(index);
-
-    // Save selected variant globally
     localStorage.setItem(
       "selectedVariantIndex",
       index
     );
 
-    // Inform parent (ProductDetails / StickyBar)
     if (onVariantChange)
       onVariantChange(index);
   };
 
-  /* ---------- UI ---------- */
-
   return (
     <div>
-      {/* BRAND */}
+
       <div className="text-sm uppercase text-text-secondary mb-2">
         {product.brand}
       </div>
 
-      {/* NAME */}
       <h1 className="text-4xl font-bold text-white">
         {product.name}
       </h1>
 
-      {/* STOCK */}
       <p
         className={`font-bold mt-3 ${
           inStock
@@ -96,7 +73,6 @@ export default function ProductInfo({
           : "Out of Stock"}
       </p>
 
-      {/* PRICE */}
       <div className="flex items-center gap-4 mt-4">
         <span className="text-3xl font-bold text-primary">
           {price}
@@ -108,8 +84,6 @@ export default function ProductInfo({
           </span>
         )}
       </div>
-
-      {/* ---------------- VARIANT SELECTOR ---------------- */}
 
       {hasVariants && (
         <div className="mt-6 space-y-2">
@@ -126,7 +100,7 @@ export default function ProductInfo({
                     handleVariantClick(i)
                   }
                   className={`px-3 py-2 border rounded-lg text-sm transition ${
-                    selectedVariant === i
+                    variantIndex === i
                       ? "border-primary text-primary"
                       : "border-border-dark text-text-secondary hover:border-primary"
                   }`}
@@ -138,6 +112,7 @@ export default function ProductInfo({
           </div>
         </div>
       )}
+
     </div>
   );
 }

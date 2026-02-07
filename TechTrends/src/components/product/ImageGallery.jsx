@@ -1,30 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function ImageGallery() {
-
-  const images = [
-    "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=900",
-    "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=900",
-    "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=900",
-    "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=900",
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900",
-  ];
+export default function ImageGallery({ images = [] }) {
 
   const [active, setActive] = useState(images[0]);
+
+  // Update active image when product changes
+  useEffect(() => {
+    if (images.length > 0) {
+      setActive(images[0]);
+    }
+  }, [images]);
+
+  if (!images.length) return null;
 
   return (
     <div className="lg:col-span-7 space-y-4">
 
       {/* Main Image */}
       <div className="aspect-[4/3] bg-[#0f172a] rounded-xl relative overflow-hidden">
-
         <img
           src={active}
           alt="Product"
           className="w-full h-full object-cover hover:scale-105 transition duration-500"
         />
 
-        {/* Badge */}
         <span className="absolute top-4 left-4 bg-primary text-white px-3 py-1 text-xs rounded-full">
           New Arrival
         </span>
@@ -52,10 +51,11 @@ export default function ImageGallery() {
           </button>
         ))}
 
-        {/* More Images Tile */}
-        <div className="aspect-square bg-white/5 rounded-lg flex items-center justify-center text-gray-400 text-sm border border-white/10">
-          +{images.length - 4}
-        </div>
+        {images.length > 4 && (
+          <div className="aspect-square bg-white/5 rounded-lg flex items-center justify-center text-gray-400 text-sm border border-white/10">
+            +{images.length - 4}
+          </div>
+        )}
 
       </div>
     </div>
