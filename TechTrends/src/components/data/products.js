@@ -1424,9 +1424,12 @@ const productData = {
       id: "airpods-max",
       brand: "Apple",
       name: "AirPods Max",
-      image:
-        "https://images.unsplash.com/photo-1625755216532-08b5b63dd097?w=400&h=300&fit=crop",
-
+      images: [
+        "https://m.media-amazon.com/images/I/71QFjliR-ML._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71QFjliR-ML._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/714a26vSiDL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61Bb9hBUEDL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["ANC", "Spatial", "Premium"],
@@ -1440,9 +1443,13 @@ const productData = {
       id: "galaxy-buds-live-3",
       brand: "Samsung",
       name: "Galaxy Buds Live 3",
-      image:
-        "https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=400&h=300&fit=crop",
-
+      images: [
+         "https://rukmini1.flixcart.com/image/1500/1500/ktyp8cw0/headphone/c/z/i/sm-r180nznainu-samsung-original-imag77fzwryhaybg.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/ktyp8cw0/headphone/l/q/n/sm-r180nznainu-samsung-original-imag77fzp7bbpguz.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/ktyp8cw0/headphone/w/g/n/sm-r180nznainu-samsung-original-imag77fznsqbnhzh.jpeg?q=70",
+        "https://rukmini1.flixcart.com/image/1500/1500/ktyp8cw0/headphone/c/9/p/sm-r180nznainu-samsung-original-imag77fzkxfvzvgu.jpeg?q=70",
+       
+      ],
       variants: [
         {
           specs: ["ANC", "Bean", "Unique"],

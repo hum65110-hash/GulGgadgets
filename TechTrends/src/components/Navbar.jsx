@@ -158,16 +158,7 @@ useEffect(() => {
 
           <div className="flex items-center gap-3">
 
-            {/* Search */}
-            <div className="hidden md:flex h-10 border border-border-dark rounded-lg bg-surface-dark/50">
-              <span className="material-symbols-outlined px-3 flex items-center text-[#90bccb]">
-                search
-              </span>
-              <input
-                placeholder="Search gadgets..."
-                className="bg-transparent text-white text-sm outline-none px-2"
-              />
-            </div>
+
 
             {/* Cart */}
             <Link
