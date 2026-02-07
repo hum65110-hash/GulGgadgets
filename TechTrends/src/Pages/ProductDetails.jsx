@@ -6,7 +6,7 @@ import Breadcrumbs from "../components/product/Breadcrumbs";
 import ImageGallery from "../components/product/ImageGallery";
 import ProductInfo from "../components/product/ProductInfo";
 import SpecsGrid from "../components/product/SpecsGrid";
-// import PurchaseOptions from "../components/product/PurchaseOptions";
+import PurchaseOptions from "../components/product/PurchaseOptions";
 import FrequentlyBought from "../components/product/FrequentlyBought";
 import StickyBuyBar from "../components/product/StickyBuyBar";
 import {
@@ -179,12 +179,12 @@ export default function ProductDetails() {
               }))}
             />
 
-            {/* <PurchaseOptions
+            <PurchaseOptions
               onAddToCart={addToCart}
               onAddToWishlist={
                 addToWishlist
               }
-            /> */}
+            />
           </div>
         </section>
       </div>
