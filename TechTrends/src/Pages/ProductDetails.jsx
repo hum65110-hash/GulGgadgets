@@ -1,19 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { normalizedProductData } from "../components/data/products";
-
 import toast from "react-hot-toast";
-
-
-
 import Breadcrumbs from "../components/product/Breadcrumbs";
 import ImageGallery from "../components/product/ImageGallery";
 import ProductInfo from "../components/product/ProductInfo";
 import SpecsGrid from "../components/product/SpecsGrid";
-import PurchaseOptions from "../components/product/PurchaseOptions";
+// import PurchaseOptions from "../components/product/PurchaseOptions";
 import FrequentlyBought from "../components/product/FrequentlyBought";
 import StickyBuyBar from "../components/product/StickyBuyBar";
-import { getWishlist, saveWishlist } from "../components/utils/storage";
+import { getWishlist, saveWishlist, getCart, saveCart} from "../components/utils/storage";
 
 /* ---------------- HELPERS ---------------- */
 
@@ -65,31 +61,48 @@ export default function ProductDetails() {
 
   /* ---------- NORMALIZE PRODUCT ---------- */
 
-  const hasVariants =
-    product.variants?.length > 0;
+ /* ---------- NORMALIZE PRODUCT ---------- */
 
-  const activeVariant = hasVariants
-    ? product.variants[variantIndex]
-    : null;
+const hasVariants =
+  Array.isArray(product.variants) &&
+  product.variants.length > 0;
 
-  const price = hasVariants
-    ? activeVariant.price
-    : product.price;
+// 🛡️ Clamp index safely
+const safeVariantIndex = Math.min(
+  variantIndex,
+  (product.variants?.length || 1) - 1
+);
 
-  const originalPrice = hasVariants
-    ? activeVariant.originalPrice
-    : product.originalPrice;
+const activeVariant = hasVariants
+  ? product.variants[safeVariantIndex]
+  : null;
 
-  const specs = hasVariants
-    ? activeVariant.specs
-    : product.specs || [];
+const price = hasVariants
+  ? activeVariant?.price
+  : product.price;
+
+const originalPrice = hasVariants
+  ? activeVariant?.originalPrice
+  : product.originalPrice;
+
+const specs = hasVariants
+  ? activeVariant?.specs || []
+  : product.specs || [];
 
   const images =
     product.images ||
     (product.image ? [product.image] : []);
 
   /* ---------- CART ---------- */
-const variant = product.variants[variantIndex];
+const variant = hasVariants
+  ? product.variants[safeVariantIndex]
+  : {
+      id: `${product.id}-v0`,
+      specs: product.specs || [],
+      price: product.price,
+      numericPrice: 0,
+    };
+
 
 const addToCart = () => {
   const cart = getCart();
@@ -120,6 +133,12 @@ const addToCart = () => {
   toast.success("Added to cart");
 
 };
+
+
+useEffect(() => {
+  setVariantIndex(0);
+  localStorage.setItem("selectedVariantIndex", 0);
+}, [product.id]);
 
 
   /* ---------- WISHLIST ---------- */
@@ -172,10 +191,11 @@ const addToWishlist = () => {
           <div className="lg:col-span-5 space-y-8">
 
             <ProductInfo
-              onVariantChange={(i) =>
-                setVariantIndex(i)
-              }
-            />
+  product={product}
+  variantIndex={variantIndex}
+  onVariantChange={setVariantIndex}
+/>
+
 
             <SpecsGrid
               specs={specs.map((s, i) => ({
@@ -185,12 +205,12 @@ const addToWishlist = () => {
               }))}
             />
 
-            <PurchaseOptions
+            {/* <PurchaseOptions
               onAddToCart={addToCart}
               onAddToWishlist={
                 addToWishlist
               }
-            />
+            /> */}
 
           </div>
         </section>
@@ -199,10 +219,11 @@ const addToWishlist = () => {
       <FrequentlyBought />
 
       <StickyBuyBar
-        name={product.name}
-        price={price}
-        onAddToCart={addToCart}
-      />
+  product={product}
+  variantIndex={variantIndex}
+  onAddToCart={addToCart}
+/>
+
     </div>
   );
 }

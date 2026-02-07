@@ -1,363 +1,182 @@
 const productData = {
   laptops: [
-    // HP
-    {
-      brand: "HP",
-      name: "HP 15s (Intel i5)",
-      image:
-        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop",
-      specs: ["Intel i5", "16GB", "512GB"],
-      originalPrice: "₹64,999",
-      price: "₹25,999",
-    },
-    {
-      brand: "HP",
-      name: "HP Pavilion 14",
-      image:
-        "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=300&fit=crop",
-      specs: ["Intel i5", "16GB", "512GB"],
-      originalPrice: "₹74,999",
-      price: "₹29,999",
-    },
-    {
-      brand: "HP",
-      name: "HP Victus Gaming",
-      image:
-        "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=300&fit=crop",
-      specs: ["16GB", "512GB", "RTX 3050"],
-      originalPrice: "₹84,999",
-      price: "₹33,999",
-    },
-    {
-      brand: "HP",
-      name: "HP Omen Gaming",
-      image:
-        "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=400&h=300&fit=crop",
-      specs: ["16GB", "1TB", "RTX 4060"],
-      originalPrice: "₹1,34,999",
-      price: "₹53,999",
-    },
-    // Lenovo
-    {
-      brand: "Lenovo",
-      name: "Lenovo IdeaPad Slim 3",
-      image:
-        "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=300&fit=crop",
-      specs: ["Intel i5", "16GB", "512GB"],
-      originalPrice: "₹59,999",
-      price: "₹23,999",
-    },
-    {
-      brand: "Lenovo",
-      name: "Lenovo IdeaPad Slim 5",
-      image:
-        "https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop",
-      specs: ["Intel i5", "16GB", "512GB"],
-      originalPrice: "₹74,999",
-      price: "₹29,999",
-    },
-    {
-      brand: "Lenovo",
-      name: "Lenovo ThinkPad E14",
-      image:
-        "https://images.unsplash.com/photo-1616763355548-1b606f439f86?w=400&h=300&fit=crop",
-      specs: ["Intel i5", "16GB", "512GB"],
-      originalPrice: "₹84,999",
-      price: "₹33,999",
-    },
-    {
-      brand: "Lenovo",
-      name: "Lenovo LOQ Gaming",
-      image:
-        "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=300&fit=crop",
-      specs: ["16GB", "512GB", "RTX 4050"],
-      originalPrice: "₹89,999",
-      price: "₹35,999",
-    },
-    // Dell
-    {
-      brand: "Dell",
-      name: "Dell Inspiron 15",
-      image:
-        "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=400&h=300&fit=crop",
-      specs: ["Intel i5", "16GB", "512GB"],
-      originalPrice: "₹69,999",
-      price: "₹27,999",
-    },
-    {
-      brand: "Dell",
-      name: "Dell Vostro 14",
-      image:
-        "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=300&fit=crop",
-      specs: ["Intel i5", "16GB", "512GB"],
-      originalPrice: "₹64,999",
-      price: "₹25,999",
-    },
-    {
-      brand: "Dell",
-      name: "Dell XPS 13",
-      image:
-        "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=300&fit=crop",
-      specs: ["Intel i7", "16GB", "512GB"],
-      originalPrice: "₹1,59,999",
-      price: "₹63,999",
-    },
-    // ASUS
-    {
-      brand: "ASUS",
-      name: "ASUS Vivobook 15",
-      image:
-        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop",
-      specs: ["Intel i5", "16GB", "512GB"],
-      originalPrice: "₹62,999",
-      price: "₹25,199",
-    },
-    {
-      brand: "ASUS",
-      name: "ASUS Vivobook S14 OLED",
-      image:
-        "https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop",
-      specs: ["OLED", "16GB", "512GB"],
-      originalPrice: "₹84,999",
-      price: "₹33,999",
-    },
-    {
-      brand: "ASUS",
-      name: "ASUS TUF Gaming F15",
-      image:
-        "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=300&fit=crop",
-      specs: ["16GB", "512GB", "RTX 3050"],
-      originalPrice: "₹94,999",
-      price: "₹37,999",
-    },
-    {
-      brand: "ASUS",
-      name: "ASUS ROG Strix G16",
-      image:
-        "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=400&h=300&fit=crop",
-      specs: ["16GB", "1TB", "RTX 4060"],
-      originalPrice: "₹1,59,999",
-      price: "₹63,999",
-    },
-    // Acer / Samsung
-    {
-      brand: "Acer",
-      name: "Acer Aspire 7",
-      image:
-        "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=300&fit=crop",
-      specs: ["Intel i5", "16GB", "512GB"],
-      originalPrice: "₹59,999",
-      price: "₹23,999",
-    },
-    {
-      brand: "Acer",
-      name: "Acer Nitro V Gaming",
-      image:
-        "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=300&fit=crop",
-      specs: ["16GB", "512GB", "RTX 4050"],
-      originalPrice: "₹84,999",
-      price: "₹33,999",
-    },
-    {
-      brand: "Samsung",
-      name: "Samsung Galaxy Book 4",
-      image:
-        "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=300&fit=crop",
-      specs: ["Intel i5", "16GB", "512GB"],
-      originalPrice: "₹79,999",
-      price: "₹31,999",
-    },
-    {
-      id: "mba-13-m4",
-      brand: "Apple",
-      name: 'MacBook Air 13" M4',
-      image:
-        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=300&fit=crop",
 
-      variants: [
-        {
-          specs: ["M4", "16GB", "256GB"],
-          originalPrice: "₹99,900",
-          price: "₹39,960",
-        },
-        {
-          specs: ["M4", "16GB", "512GB"],
-          originalPrice: "₹1,44,900",
-          price: "₹57,960",
-        },
-      ],
-    },
-    {
-      id: "mba-15-m4",
-      brand: "Apple",
-      name: 'MacBook Air 15" M4',
-      image:
-        "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=300&fit=crop",
+  // HP
+  {
+    id: "hp-15s-i5",
+    brand: "HP",
+    name: "HP 15s (Intel i5)",
+    image: "/images/hp1.avif",
+    specs: ["Intel i5", "16GB", "512GB"],
+    originalPrice: "₹64,999",
+    price: "₹25,999",
+  },
+  {
+    id: "hp-pavilion-14",
+    brand: "HP",
+    name: "HP Pavilion 14",
+    image: "/images/hp2.jpg",
+    specs: ["Intel i5", "16GB", "512GB"],
+    originalPrice: "₹74,999",
+    price: "₹29,999",
+  },
+  {
+    id: "hp-victus-gaming",
+    brand: "HP",
+    name: "HP Victus Gaming",
+    image: "/images/hp3.jpg",
+    specs: ["16GB", "512GB", "RTX 3050"],
+    originalPrice: "₹84,999",
+    price: "₹33,999",
+  },
+  {
+    id: "hp-omen-gaming",
+    brand: "HP",
+    name: "HP Omen Gaming",
+    image: "/images/hp4.webp",
+    specs: ["16GB", "1TB", "RTX 4060"],
+    originalPrice: "₹1,34,999",
+    price: "₹53,999",
+  },
 
-      variants: [
-        {
-          specs: ["M4", "16GB", "256GB"],
-          originalPrice: "₹1,24,900",
-          price: "₹49,960",
-        },
-        {
-          specs: ["M4", "16GB", "512GB"],
-          originalPrice: "₹1,74,900",
-          price: "₹69,960",
-        },
-      ],
-    },
-    {
-      id: "mba-m2",
-      brand: "Apple",
-      name: "MacBook Air M2",
-      image:
-        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=300&fit=crop",
+  // Lenovo
+  {
+    id: "lenovo-ideapad-slim-3",
+    brand: "Lenovo",
+    name: "Lenovo IdeaPad Slim 3",
+    image: "/images/lenovo1.jpg",
+    specs: ["Intel i5", "16GB", "512GB"],
+    originalPrice: "₹59,999",
+    price: "₹23,999",
+  },
+  {
+    id: "lenovo-ideapad-slim-5",
+    brand: "Lenovo",
+    name: "Lenovo IdeaPad Slim 5",
+    image: "/images/lenovo2.jpg",
+    specs: ["Intel i5", "16GB", "512GB"],
+    originalPrice: "₹74,999",
+    price: "₹29,999",
+  },
+  {
+    id: "lenovo-thinkpad-e14",
+    brand: "Lenovo",
+    name: "Lenovo ThinkPad E14",
+    image: "/images/lenovo3.jpg",
+    specs: ["Intel i5", "16GB", "512GB"],
+    originalPrice: "₹84,999",
+    price: "₹33,999",
+  },
+  {
+    id: "lenovo-loq-gaming",
+    brand: "Lenovo",
+    name: "Lenovo LOQ Gaming",
+    image: "/images/lenovo4.jpg",
+    specs: ["16GB", "512GB", "RTX 4050"],
+    originalPrice: "₹89,999",
+    price: "₹35,999",
+  },
 
-      variants: [
-        {
-          specs: ["M2", "8GB", "256GB"],
-          originalPrice: "₹1,19,900",
-          price: "₹47,960",
-        },
-        {
-          specs: ["M2", "16GB", "512GB"],
-          originalPrice: "₹1,49,900",
-          price: "₹59,960",
-        },
-      ],
-    },
-    {
-      id: "mba-m1",
-      brand: "Apple",
-      name: "MacBook Air M1",
-      image:
-        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=300&fit=crop",
+  // Dell
+  {
+    id: "dell-inspiron-15",
+    brand: "Dell",
+    name: "Dell Inspiron 15",
+    image: "/images/dell1.avif",
+    specs: ["Intel i5", "16GB", "512GB"],
+    originalPrice: "₹69,999",
+    price: "₹27,999",
+  },
+  {
+    id: "dell-vostro-14",
+    brand: "Dell",
+    name: "Dell Vostro 14",
+    image: "/images/dell2.jpg",
+    specs: ["Intel i5", "16GB", "512GB"],
+    originalPrice: "₹64,999",
+    price: "₹25,999",
+  },
+  {
+    id: "dell-xps-13",
+    brand: "Dell",
+    name: "Dell XPS 13",
+    image: "/images/dell3.avif",
+    specs: ["Intel i7", "16GB", "512GB"],
+    originalPrice: "₹1,59,999",
+    price: "₹63,999",
+  },
 
-      variants: [
-        {
-          specs: ["M1", "8GB", "256GB"],
-          originalPrice: "₹99,900",
-          price: "₹39,960",
-        },
-      ],
-    },
-    {
-      id: "mbp-14-m4pro",
-      brand: "Apple",
-      name: 'MacBook Pro 14" M4 Pro',
-      image:
-        "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=300&fit=crop",
+  // ASUS
+  {
+    id: "asus-vivobook-15",
+    brand: "ASUS",
+    name: "ASUS Vivobook 15",
+    image: "/images/asus1.webp",
+    specs: ["Intel i5", "16GB", "512GB"],
+    originalPrice: "₹62,999",
+    price: "₹25,199",
+  },
+  {
+    id: "asus-vivobook-s14-oled",
+    brand: "ASUS",
+    name: "ASUS Vivobook S14 OLED",
+    image: "/images/asus2.jpg",
+    specs: ["OLED", "16GB", "512GB"],
+    originalPrice: "₹84,999",
+    price: "₹33,999",
+  },
+  {
+    id: "asus-tuf-f15",
+    brand: "ASUS",
+    name: "ASUS TUF Gaming F15",
+    image: "/images/asus3.jpg",
+    specs: ["16GB", "512GB", "RTX 3050"],
+    originalPrice: "₹94,999",
+    price: "₹37,999",
+  },
+  {
+    id: "asus-rog-strix-g16",
+    brand: "ASUS",
+    name: "ASUS ROG Strix G16",
+    image: "/images/asus4.png",
+    specs: ["16GB", "1TB", "RTX 4060"],
+    originalPrice: "₹1,59,999",
+    price: "₹63,999",
+  },
 
-      variants: [
-        {
-          specs: ["M4 Pro", "16GB", "512GB"],
-          originalPrice: "₹1,69,900",
-          price: "₹67,960",
-        },
-        {
-          specs: ["M4 Pro", "24GB", "1TB"],
-          originalPrice: "₹2,39,900",
-          price: "₹95,960",
-        },
-      ],
-    },
-    {
-      id: "mbp-14-m4max",
-      brand: "Apple",
-      name: 'MacBook Pro 14" M4 Max',
-      image:
-        "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=300&fit=crop",
+  // Acer
+  {
+    id: "acer-aspire-7",
+    brand: "Acer",
+    name: "Acer Aspire 7",
+    image: "/images/acer1.jpg",
+    specs: ["Intel i5", "16GB", "512GB"],
+    originalPrice: "₹59,999",
+    price: "₹23,999",
+  },
+  {
+    id: "acer-nitro-v",
+    brand: "Acer",
+    name: "Acer Nitro V Gaming",
+    image: "/images/acer2.jpg",
+    specs: ["16GB", "512GB", "RTX 4050"],
+    originalPrice: "₹84,999",
+    price: "₹33,999",
+  },
 
-      variants: [
-        {
-          specs: ["M4 Max", "36GB", "1TB"],
-          originalPrice: "₹3,19,900",
-          price: "₹1,27,960",
-        },
-      ],
-    },
-    {
-      id: "mbp-16-m4pro",
-      brand: "Apple",
-      name: 'MacBook Pro 16" M4 Pro',
-      image:
-        "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=400&h=300&fit=crop",
+  // Samsung
+  {
+    id: "samsung-galaxy-book-4",
+    brand: "Samsung",
+    name: "Samsung Galaxy Book 4",
+    image: "/images/acer3.jpg",
+    specs: ["Intel i5", "16GB", "512GB"],
+    originalPrice: "₹79,999",
+    price: "₹31,999",
+  },
 
-      variants: [
-        {
-          specs: ["M4 Pro", "24GB", "512GB"],
-          originalPrice: "₹2,49,900",
-          price: "₹99,960",
-        },
-        {
-          specs: ["M4 Pro", "48GB", "512GB"],
-          originalPrice: "₹2,89,900",
-          price: "₹1,15,960",
-        },
-      ],
-    },
-    {
-      id: "mbp-16-m4max",
-      brand: "Apple",
-      name: 'MacBook Pro 16" M4 Max',
-      image:
-        "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=400&h=300&fit=crop",
-
-      variants: [
-        {
-          specs: ["M4 Max", "36GB", "1TB"],
-          originalPrice: "₹3,49,900",
-          price: "₹1,39,960",
-        },
-        {
-          specs: ["M4 Max", "40GB", "1TB"],
-          originalPrice: "₹3,99,900",
-          price: "₹1,59,960",
-        },
-      ],
-    },
-    {
-      id: "mbp-14-m5",
-      brand: "Apple",
-      name: 'MacBook Pro 14" M5',
-      image:
-        "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=300&fit=crop",
-
-      variants: [
-        {
-          specs: ["M5", "16GB", "512GB"],
-          originalPrice: "₹1,69,900",
-          price: "₹67,960",
-        },
-        {
-          specs: ["M5", "24GB", "1TB"],
-          originalPrice: "₹2,19,900",
-          price: "₹87,960",
-        },
-      ],
-    },
-    {
-      id: "mbp-14-m3pro",
-      brand: "Apple",
-      name: 'MacBook Pro 14" M3 Pro',
-      image:
-        "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=300&fit=crop",
-
-      variants: [
-        {
-          specs: ["M3 Pro", "24GB", "512GB"],
-          originalPrice: "₹2,14,900",
-          price: "₹85,960",
-        },
-        {
-          specs: ["M3 Pro", "16GB", "512GB"],
-          originalPrice: "₹1,91,900",
-          price: "₹76,760",
-        },
-      ],
-    },
-  ],
+]
+,
 
   smartphones: [
     // Samsung Galaxy Z Fold Series
