@@ -1,183 +1,179 @@
 const productData = {
   laptops: [
+    // HP
+    {
+      id: "hp-15s-i5",
+      brand: "HP",
+      name: "HP 15s (Intel i5)",
+      image: "/images/hp1.avif",
+      specs: ["Intel i5", "16GB", "512GB"],
+      originalPrice: "₹64,999",
+      price: "₹25,999",
+    },
+    {
+      id: "hp-pavilion-14",
+      brand: "HP",
+      name: "HP Pavilion 14",
+      image: "/images/hp2.jpg",
+      specs: ["Intel i5", "16GB", "512GB"],
+      originalPrice: "₹74,999",
+      price: "₹29,999",
+    },
+    {
+      id: "hp-victus-gaming",
+      brand: "HP",
+      name: "HP Victus Gaming",
+      image: "/images/hp3.jpg",
+      specs: ["16GB", "512GB", "RTX 3050"],
+      originalPrice: "₹84,999",
+      price: "₹33,999",
+    },
+    {
+      id: "hp-omen-gaming",
+      brand: "HP",
+      name: "HP Omen Gaming",
+      image: "/images/hp4.webp",
+      specs: ["16GB", "1TB", "RTX 4060"],
+      originalPrice: "₹1,34,999",
+      price: "₹53,999",
+    },
 
-  // HP
-  {
-    id: "hp-15s-i5",
-    brand: "HP",
-    name: "HP 15s (Intel i5)",
-    image: "/images/hp1.avif",
-    specs: ["Intel i5", "16GB", "512GB"],
-    originalPrice: "₹64,999",
-    price: "₹25,999",
-  },
-  {
-    id: "hp-pavilion-14",
-    brand: "HP",
-    name: "HP Pavilion 14",
-    image: "/images/hp2.jpg",
-    specs: ["Intel i5", "16GB", "512GB"],
-    originalPrice: "₹74,999",
-    price: "₹29,999",
-  },
-  {
-    id: "hp-victus-gaming",
-    brand: "HP",
-    name: "HP Victus Gaming",
-    image: "/images/hp3.jpg",
-    specs: ["16GB", "512GB", "RTX 3050"],
-    originalPrice: "₹84,999",
-    price: "₹33,999",
-  },
-  {
-    id: "hp-omen-gaming",
-    brand: "HP",
-    name: "HP Omen Gaming",
-    image: "/images/hp4.webp",
-    specs: ["16GB", "1TB", "RTX 4060"],
-    originalPrice: "₹1,34,999",
-    price: "₹53,999",
-  },
+    // Lenovo
+    {
+      id: "lenovo-ideapad-slim-3",
+      brand: "Lenovo",
+      name: "Lenovo IdeaPad Slim 3",
+      image: "/images/lenovo1.jpg",
+      specs: ["Intel i5", "16GB", "512GB"],
+      originalPrice: "₹59,999",
+      price: "₹23,999",
+    },
+    {
+      id: "lenovo-ideapad-slim-5",
+      brand: "Lenovo",
+      name: "Lenovo IdeaPad Slim 5",
+      image: "/images/lenovo2.jpg",
+      specs: ["Intel i5", "16GB", "512GB"],
+      originalPrice: "₹74,999",
+      price: "₹29,999",
+    },
+    {
+      id: "lenovo-thinkpad-e14",
+      brand: "Lenovo",
+      name: "Lenovo ThinkPad E14",
+      image: "/images/lenovo3.jpg",
+      specs: ["Intel i5", "16GB", "512GB"],
+      originalPrice: "₹84,999",
+      price: "₹33,999",
+    },
+    {
+      id: "lenovo-loq-gaming",
+      brand: "Lenovo",
+      name: "Lenovo LOQ Gaming",
+      image: "/images/lenovo4.jpg",
+      specs: ["16GB", "512GB", "RTX 4050"],
+      originalPrice: "₹89,999",
+      price: "₹35,999",
+    },
 
-  // Lenovo
-  {
-    id: "lenovo-ideapad-slim-3",
-    brand: "Lenovo",
-    name: "Lenovo IdeaPad Slim 3",
-    image: "/images/lenovo1.jpg",
-    specs: ["Intel i5", "16GB", "512GB"],
-    originalPrice: "₹59,999",
-    price: "₹23,999",
-  },
-  {
-    id: "lenovo-ideapad-slim-5",
-    brand: "Lenovo",
-    name: "Lenovo IdeaPad Slim 5",
-    image: "/images/lenovo2.jpg",
-    specs: ["Intel i5", "16GB", "512GB"],
-    originalPrice: "₹74,999",
-    price: "₹29,999",
-  },
-  {
-    id: "lenovo-thinkpad-e14",
-    brand: "Lenovo",
-    name: "Lenovo ThinkPad E14",
-    image: "/images/lenovo3.jpg",
-    specs: ["Intel i5", "16GB", "512GB"],
-    originalPrice: "₹84,999",
-    price: "₹33,999",
-  },
-  {
-    id: "lenovo-loq-gaming",
-    brand: "Lenovo",
-    name: "Lenovo LOQ Gaming",
-    image: "/images/lenovo4.jpg",
-    specs: ["16GB", "512GB", "RTX 4050"],
-    originalPrice: "₹89,999",
-    price: "₹35,999",
-  },
+    // Dell
+    {
+      id: "dell-inspiron-15",
+      brand: "Dell",
+      name: "Dell Inspiron 15",
+      image: "/images/dell1.avif",
+      specs: ["Intel i5", "16GB", "512GB"],
+      originalPrice: "₹69,999",
+      price: "₹27,999",
+    },
+    {
+      id: "dell-vostro-14",
+      brand: "Dell",
+      name: "Dell Vostro 14",
+      image: "/images/dell2.jpg",
+      specs: ["Intel i5", "16GB", "512GB"],
+      originalPrice: "₹64,999",
+      price: "₹25,999",
+    },
+    {
+      id: "dell-xps-13",
+      brand: "Dell",
+      name: "Dell XPS 13",
+      image: "/images/dell3.avif",
+      specs: ["Intel i7", "16GB", "512GB"],
+      originalPrice: "₹1,59,999",
+      price: "₹63,999",
+    },
 
-  // Dell
-  {
-    id: "dell-inspiron-15",
-    brand: "Dell",
-    name: "Dell Inspiron 15",
-    image: "/images/dell1.avif",
-    specs: ["Intel i5", "16GB", "512GB"],
-    originalPrice: "₹69,999",
-    price: "₹27,999",
-  },
-  {
-    id: "dell-vostro-14",
-    brand: "Dell",
-    name: "Dell Vostro 14",
-    image: "/images/dell2.jpg",
-    specs: ["Intel i5", "16GB", "512GB"],
-    originalPrice: "₹64,999",
-    price: "₹25,999",
-  },
-  {
-    id: "dell-xps-13",
-    brand: "Dell",
-    name: "Dell XPS 13",
-    image: "/images/dell3.avif",
-    specs: ["Intel i7", "16GB", "512GB"],
-    originalPrice: "₹1,59,999",
-    price: "₹63,999",
-  },
+    // ASUS
+    {
+      id: "asus-vivobook-15",
+      brand: "ASUS",
+      name: "ASUS Vivobook 15",
+      image: "/images/asus1.webp",
+      specs: ["Intel i5", "16GB", "512GB"],
+      originalPrice: "₹62,999",
+      price: "₹25,199",
+    },
+    {
+      id: "asus-vivobook-s14-oled",
+      brand: "ASUS",
+      name: "ASUS Vivobook S14 OLED",
+      image: "/images/asus2.jpg",
+      specs: ["OLED", "16GB", "512GB"],
+      originalPrice: "₹84,999",
+      price: "₹33,999",
+    },
+    {
+      id: "asus-tuf-f15",
+      brand: "ASUS",
+      name: "ASUS TUF Gaming F15",
+      image: "/images/asus3.jpg",
+      specs: ["16GB", "512GB", "RTX 3050"],
+      originalPrice: "₹94,999",
+      price: "₹37,999",
+    },
+    {
+      id: "asus-rog-strix-g16",
+      brand: "ASUS",
+      name: "ASUS ROG Strix G16",
+      image: "/images/asus4.png",
+      specs: ["16GB", "1TB", "RTX 4060"],
+      originalPrice: "₹1,59,999",
+      price: "₹63,999",
+    },
 
-  // ASUS
-  {
-    id: "asus-vivobook-15",
-    brand: "ASUS",
-    name: "ASUS Vivobook 15",
-    image: "/images/asus1.webp",
-    specs: ["Intel i5", "16GB", "512GB"],
-    originalPrice: "₹62,999",
-    price: "₹25,199",
-  },
-  {
-    id: "asus-vivobook-s14-oled",
-    brand: "ASUS",
-    name: "ASUS Vivobook S14 OLED",
-    image: "/images/asus2.jpg",
-    specs: ["OLED", "16GB", "512GB"],
-    originalPrice: "₹84,999",
-    price: "₹33,999",
-  },
-  {
-    id: "asus-tuf-f15",
-    brand: "ASUS",
-    name: "ASUS TUF Gaming F15",
-    image: "/images/asus3.jpg",
-    specs: ["16GB", "512GB", "RTX 3050"],
-    originalPrice: "₹94,999",
-    price: "₹37,999",
-  },
-  {
-    id: "asus-rog-strix-g16",
-    brand: "ASUS",
-    name: "ASUS ROG Strix G16",
-    image: "/images/asus4.png",
-    specs: ["16GB", "1TB", "RTX 4060"],
-    originalPrice: "₹1,59,999",
-    price: "₹63,999",
-  },
+    // Acer
+    {
+      id: "acer-aspire-7",
+      brand: "Acer",
+      name: "Acer Aspire 7",
+      image: "/images/acer1.jpg",
+      specs: ["Intel i5", "16GB", "512GB"],
+      originalPrice: "₹59,999",
+      price: "₹23,999",
+    },
+    {
+      id: "acer-nitro-v",
+      brand: "Acer",
+      name: "Acer Nitro V Gaming",
+      image: "/images/acer2.jpg",
+      specs: ["16GB", "512GB", "RTX 4050"],
+      originalPrice: "₹84,999",
+      price: "₹33,999",
+    },
 
-  // Acer
-  {
-    id: "acer-aspire-7",
-    brand: "Acer",
-    name: "Acer Aspire 7",
-    image: "/images/acer1.jpg",
-    specs: ["Intel i5", "16GB", "512GB"],
-    originalPrice: "₹59,999",
-    price: "₹23,999",
-  },
-  {
-    id: "acer-nitro-v",
-    brand: "Acer",
-    name: "Acer Nitro V Gaming",
-    image: "/images/acer2.jpg",
-    specs: ["16GB", "512GB", "RTX 4050"],
-    originalPrice: "₹84,999",
-    price: "₹33,999",
-  },
-
-  // Samsung
-  {
-    id: "samsung-galaxy-book-4",
-    brand: "Samsung",
-    name: "Samsung Galaxy Book 4",
-    image: "/images/acer3.jpg",
-    specs: ["Intel i5", "16GB", "512GB"],
-    originalPrice: "₹79,999",
-    price: "₹31,999",
-  },
-
-]
-,
-
+    // Samsung
+    {
+      id: "samsung-galaxy-book-4",
+      brand: "Samsung",
+      name: "Samsung Galaxy Book 4",
+      image: "/images/acer3.jpg",
+      specs: ["Intel i5", "16GB", "512GB"],
+      originalPrice: "₹79,999",
+      price: "₹31,999",
+    },
+  ],
   smartphones: [
     // Samsung Galaxy Z Fold Series
     {
@@ -624,7 +620,7 @@ const productData = {
         },
       ],
     },
-    
+
     {
       id: "iphone-16-pro",
       brand: "Apple",
@@ -996,8 +992,7 @@ const productData = {
       brand: "Samsung",
       name: "Galaxy Watch8 Classic",
       image:
-        "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=300&fit=crop",
-
+        "https://images.samsung.com/is/image/samsung/p6pim/in/f2507/gallery/in-galaxy-watch8-l320-sm-l320nzsains-547660098?$Q90_1920_1280_F_PNG$",//
       variants: [
         {
           specs: ["AMOLED", "GPS", "Health"],
@@ -1006,14 +1001,12 @@ const productData = {
         },
       ],
     },
-
     {
       id: "galaxy-watch7-44mm",
       brand: "Samsung",
       name: "Galaxy Watch7 44mm",
       image:
-        "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=300&fit=crop",
-
+        "https://img.tatacliq.com/images/i19//658Wx734H/MP000000023468315_658Wx734H_202408291227301.jpeg",
       variants: [
         {
           specs: ["AMOLED", "GPS", "Fitness"],
@@ -1022,14 +1015,12 @@ const productData = {
         },
       ],
     },
-
     {
       id: "galaxy-watch6-classic",
       brand: "Samsung",
       name: "Galaxy Watch6 Classic 47mm",
       image:
-        "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=300&fit=crop",
-
+        "https://m.media-amazon.com/images/I/71sRBqqrOpL.jpg",
       variants: [
         {
           specs: ["Rotating", "GPS", "47mm"],
@@ -1038,14 +1029,12 @@ const productData = {
         },
       ],
     },
-
     {
       id: "galaxy-watch8-standard",
       brand: "Samsung",
       name: "Galaxy Watch8 Standard",
       image:
-        "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=300&fit=crop",
-
+        "https://images.samsung.com/in/galaxy-watch8/feature/galaxy-watch8-design-colors-silver-perspective.jpg?imbypass=true",
       variants: [
         {
           specs: ["AMOLED", "GPS", "Health"],
@@ -1054,14 +1043,12 @@ const productData = {
         },
       ],
     },
-
     {
       id: "titan-celestor-2",
       brand: "Titan",
       name: "Celestor 2.0 Smartwatch",
       image:
-        "https://images.unsplash.com/photo-1617625802912-cde586faf331?w=400&h=300&fit=crop",
-
+        "https://images.unsplash.com/photo-1510017803434-a899398421b3?w=400&h=300&fit=crop",
       variants: [
         {
           specs: ["Hybrid", "GPS", "Indian"],
@@ -1070,14 +1057,12 @@ const productData = {
         },
       ],
     },
-
     {
       id: "moto-watch",
       brand: "Motorola",
       name: "Moto Watch",
       image:
-        "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400&h=300&fit=crop",
-
+        "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=400&h=300&fit=crop",
       variants: [
         {
           specs: ["AMOLED", "Fitness", "Budget"],
@@ -1086,14 +1071,12 @@ const productData = {
         },
       ],
     },
-
     {
       id: "amazfit-active-max",
       brand: "Amazfit",
       name: "Active Max Smartwatch",
       image:
-        "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&h=300&fit=crop",
-
+        "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400&h=300&fit=crop",
       variants: [
         {
           specs: ["AMOLED", "GPS", "Active"],
@@ -1102,14 +1085,12 @@ const productData = {
         },
       ],
     },
-
     {
       id: "amazfit-trex-3-pro",
       brand: "Amazfit",
       name: "T-Rex 3 Pro Smartwatch",
       image:
-        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
-
+        "https://images.unsplash.com/photo-1617043786394-f977fa12eddf?w=400&h=300&fit=crop",
       variants: [
         {
           specs: ["Rugged", "GPS", "Pro"],
@@ -1118,14 +1099,12 @@ const productData = {
         },
       ],
     },
-
     {
       id: "apple-watch-series-10",
       brand: "Apple",
       name: "Apple Watch Series 10 GPS",
       image:
-        "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=300&fit=crop",
-
+        "https://m.media-amazon.com/images/I/81kq5wkaqAL._AC_UF1000,1000_QL80_.jpg",
       variants: [
         {
           specs: ["GPS", "OLED", "watchOS"],
@@ -1134,14 +1113,12 @@ const productData = {
         },
       ],
     },
-
     {
       id: "pixel-watch-4",
       brand: "Google",
       name: "Pixel Watch 4",
       image:
-        "https://images.unsplash.com/photo-1544117519-31a4b719223d?w=400&h=300&fit=crop",
-
+        "https://images-cdn.ubuy.co.in/68b1920f44067f64cc072447-google-pixel-watch-4-41-mm-android.jpg",
       variants: [
         {
           specs: ["Wear OS", "GPS", "Fitbit"],
@@ -1151,6 +1128,7 @@ const productData = {
       ],
     },
   ],
+
   audio: [
     {
       id: "galaxy-buds-3-pro",
@@ -1388,8 +1366,6 @@ const parsePrice = (price) => {
   return Number(price.replace(/[₹,]/g, ""));
 };
 
-
-
 // =======================================================
 // 🔄 NORMALIZER
 // =======================================================
@@ -1400,13 +1376,10 @@ function normalizeProducts(data) {
 
   Object.entries(data).forEach(([category, items]) => {
     normalized[category] = items.map((item, index) => {
-
       // -------------------------------------------------
       // 🆔 PRODUCT ID
       // -------------------------------------------------
-      let baseId =
-        item.id ||
-        `${slugify(item.brand)}-${slugify(item.name)}`;
+      let baseId = item.id || `${slugify(item.brand)}-${slugify(item.name)}`;
 
       // prevent duplicates
       let id = baseId;
@@ -1474,8 +1447,6 @@ function normalizeProducts(data) {
   return normalized;
 }
 
-
-
 // =======================================================
 // ✅ EXPORTS
 // =======================================================
@@ -1483,5 +1454,4 @@ function normalizeProducts(data) {
 export default productData;
 
 // 👇 Use this for ecommerce logic
-export const normalizedProductData =
-  normalizeProducts(productData);
+export const normalizedProductData = normalizeProducts(productData);
