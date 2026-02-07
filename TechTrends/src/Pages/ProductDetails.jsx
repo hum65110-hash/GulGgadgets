@@ -6,7 +6,7 @@ import Breadcrumbs from "../components/product/Breadcrumbs";
 import ImageGallery from "../components/product/ImageGallery";
 import ProductInfo from "../components/product/ProductInfo";
 import SpecsGrid from "../components/product/SpecsGrid";
-import PurchaseOptions from "../components/product/PurchaseOptions";
+// import PurchaseOptions from "../components/product/PurchaseOptions";
 import FrequentlyBought from "../components/product/FrequentlyBought";
 import StickyBuyBar from "../components/product/StickyBuyBar";
 import { getWishlist, saveWishlist, getCart, saveCart} from "../components/utils/storage";
@@ -61,31 +61,48 @@ export default function ProductDetails() {
 
   /* ---------- NORMALIZE PRODUCT ---------- */
 
-  const hasVariants =
-    product.variants?.length > 0;
+ /* ---------- NORMALIZE PRODUCT ---------- */
 
-  const activeVariant = hasVariants
-    ? product.variants[variantIndex]
-    : null;
+const hasVariants =
+  Array.isArray(product.variants) &&
+  product.variants.length > 0;
 
-  const price = hasVariants
-    ? activeVariant.price
-    : product.price;
+// 🛡️ Clamp index safely
+const safeVariantIndex = Math.min(
+  variantIndex,
+  (product.variants?.length || 1) - 1
+);
 
-  const originalPrice = hasVariants
-    ? activeVariant.originalPrice
-    : product.originalPrice;
+const activeVariant = hasVariants
+  ? product.variants[safeVariantIndex]
+  : null;
 
-  const specs = hasVariants
-    ? activeVariant.specs
-    : product.specs || [];
+const price = hasVariants
+  ? activeVariant?.price
+  : product.price;
+
+const originalPrice = hasVariants
+  ? activeVariant?.originalPrice
+  : product.originalPrice;
+
+const specs = hasVariants
+  ? activeVariant?.specs || []
+  : product.specs || [];
 
   const images =
     product.images ||
     (product.image ? [product.image] : []);
 
   /* ---------- CART ---------- */
-const variant = product.variants[variantIndex];
+const variant = hasVariants
+  ? product.variants[safeVariantIndex]
+  : {
+      id: `${product.id}-v0`,
+      specs: product.specs || [],
+      price: product.price,
+      numericPrice: 0,
+    };
+
 
 const addToCart = () => {
   const cart = getCart();
@@ -116,6 +133,12 @@ const addToCart = () => {
   toast.success("Added to cart");
 
 };
+
+
+useEffect(() => {
+  setVariantIndex(0);
+  localStorage.setItem("selectedVariantIndex", 0);
+}, [product.id]);
 
 
   /* ---------- WISHLIST ---------- */
@@ -182,12 +205,12 @@ const addToWishlist = () => {
               }))}
             />
 
-            <PurchaseOptions
+            {/* <PurchaseOptions
               onAddToCart={addToCart}
               onAddToWishlist={
                 addToWishlist
               }
-            />
+            /> */}
 
           </div>
         </section>
