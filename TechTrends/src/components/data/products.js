@@ -1224,8 +1224,12 @@ const productData = {
       id: "galaxy-watch8-classic",
       brand: "Samsung",
       name: "Galaxy Watch8 Classic",
-      image:
-        "https://images.samsung.com/is/image/samsung/p6pim/in/f2507/gallery/in-galaxy-watch8-l320-sm-l320nzsains-547660098?$Q90_1920_1280_F_PNG$",//
+     images: [
+      "https://m.media-amazon.com/images/I/81JhHZ4XSpL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71rM-tQ2+pL._SL1080_.jpg",
+      "https://m.media-amazon.com/images/I/61X+7CDYSnL._SL1080_.jpg",
+      "https://m.media-amazon.com/images/I/61-HaMWxM2L._SL1080_.jpg"
+     ],
       variants: [
         {
           specs: ["AMOLED", "GPS", "Health"],
@@ -1266,8 +1270,12 @@ const productData = {
       id: "galaxy-watch8-standard",
       brand: "Samsung",
       name: "Galaxy Watch8 Standard",
-      image:
+      images: [
         "https://images.samsung.com/in/galaxy-watch8/feature/galaxy-watch8-design-colors-silver-perspective.jpg?imbypass=true",
+        "https://m.media-amazon.com/images/I/61qTH6YGoCL._SL1080_.jpg",
+        "https://m.media-amazon.com/images/I/61nOam0lG8L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51-IPzS2GjL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["AMOLED", "GPS", "Health"],
@@ -1280,8 +1288,12 @@ const productData = {
       id: "titan-celestor-2",
       brand: "Titan",
       name: "Celestor 2.0 Smartwatch",
-      image:
-        "https://images.unsplash.com/photo-1510017803434-a899398421b3?w=400&h=300&fit=crop",
+      images: [
+        "https://m.media-amazon.com/images/I/71G-4qxEQIL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81YT6nsm1kL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81htfE10lNL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71ZMuxXYI8L._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["Hybrid", "GPS", "Indian"],
@@ -1294,8 +1306,12 @@ const productData = {
       id: "moto-watch",
       brand: "Motorola",
       name: "Moto Watch",
-      image:
-        "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=400&h=300&fit=crop",
+      images: [
+        "https://m.media-amazon.com/images/I/71ZUibeqWJL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71ZUibeqWJL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61Ltcl5NiXL._SL1000_.jpg",
+        "https://m.media-amazon.com/images/I/61Ltcl5NiXL._SL1000_.jpg"
+      ],
       variants: [
         {
           specs: ["AMOLED", "Fitness", "Budget"],
@@ -1308,8 +1324,12 @@ const productData = {
       id: "amazfit-active-max",
       brand: "Amazfit",
       name: "Active Max Smartwatch",
-      image:
-        "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400&h=300&fit=crop",
+      images: [
+        "https://m.media-amazon.com/images/I/61eLhGc40TL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/614IAS3eV-L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/614IAS3eV-L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/612JmBp0PVL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["AMOLED", "GPS", "Active"],
@@ -1322,8 +1342,13 @@ const productData = {
       id: "amazfit-trex-3-pro",
       brand: "Amazfit",
       name: "T-Rex 3 Pro Smartwatch",
-      image:
-        "https://images.unsplash.com/photo-1617043786394-f977fa12eddf?w=400&h=300&fit=crop",
+      images:[
+        "https://m.media-amazon.com/images/I/71qMhhNEdSL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71nwhpzWf7L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71nwhpzWf7L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/815ROrXXCeL._SL1500_.jpg"
+      ],
+        
       variants: [
         {
           specs: ["Rugged", "GPS", "Pro"],
@@ -1336,8 +1361,13 @@ const productData = {
       id: "apple-watch-series-10",
       brand: "Apple",
       name: "Apple Watch Series 10 GPS",
-      image:
-        "https://m.media-amazon.com/images/I/81kq5wkaqAL._AC_UF1000,1000_QL80_.jpg",
+      images:[
+        "https://m.media-amazon.com/images/I/81kq5wkaqAL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71uRfemJCPL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/713d1BUBGnL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/817-UzcCLWL._SL1500_.jpg"
+      ],
+        
       variants: [
         {
           specs: ["GPS", "OLED", "watchOS"],
@@ -1350,8 +1380,13 @@ const productData = {
       id: "pixel-watch-4",
       brand: "Google",
       name: "Pixel Watch 4",
-      image:
-        "https://images-cdn.ubuy.co.in/68b1920f44067f64cc072447-google-pixel-watch-4-41-mm-android.jpg",
+      image:[
+        "https://m.media-amazon.com/images/I/61pb7N4RItL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/814J6RaUKoL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71TiuMyJFXL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81ebhM9zBFL._SL1500_.jpg"
+      ],
+        
       variants: [
         {
           specs: ["Wear OS", "GPS", "Fitbit"],
@@ -1463,9 +1498,12 @@ const productData = {
       id: "jbl-live-pro-3",
       brand: "JBL",
       name: "Live Pro 3 Earbuds",
-      image:
-        "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=300&fit=crop",
-
+      images: [
+        "https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw88d23ea9/01.JBL_Live%20Buds%203_Product%20Image_Case%20Feature%202_Silver.png?sw=535&sh=535",
+        "https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw541afe01/02.JBL_Live%20Buds%203_Product%20Image_Hero_Silver.png?sw=535&sh=535",
+        "https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw7bbf947f/03.JBL_Live%20Buds%203_Product%20Image_Case%20Lifestyle_Silver.png?sw=535&sh=535",
+        "https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw50a8d3d2/04.JBL_Live%20Buds%203_Product%20Image_Earbuds_Silver.png?sw=535&sh=535"
+      ],
       variants: [
         {
           specs: ["ANC", "JBL Sound", "TWS"],
@@ -1479,7 +1517,12 @@ const productData = {
       id: "bose-qc-buds-2",
       brand: "Bose",
       name: "QuietComfort Buds II",
-
+      images: [
+        "https://m.media-amazon.com/images/I/51qRS8hb-9L._SL1129_.jpg",
+        "https://m.media-amazon.com/images/I/51JspPN5IQL._SL1152_.jpg",
+        "https://m.media-amazon.com/images/I/414q9yvnPtL._SL1097_.jpg",
+        "https://m.media-amazon.com/images/I/515CauvxugL._SL1090_.jpg"
+      ],
       variants: [
         {
           specs: ["Premium ANC", "Comfort", "Bose"],
@@ -1493,7 +1536,12 @@ const productData = {
       id: "oneplus-buds-pro-2",
       brand: "OnePlus",
       name: "Buds Pro 2",
-
+      images: [
+        "https://m.media-amazon.com/images/I/31alUEdQqNL._SX300_SY300_QL70_FMwebp_.jpg",
+        "https://m.media-amazon.com/images/I/61mErLiIrFL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/41+XU3sr4XL._SL1080_.jpg",
+        "https://m.media-amazon.com/images/I/51uJE37udXL._SL1252_.jpg"
+      ],
       variants: [
         {
           specs: ["ANC", "Premium", "OnePlus"],
@@ -1507,7 +1555,12 @@ const productData = {
       id: "sony-wf-1000xm5",
       brand: "Sony",
       name: "WF-1000XM5 Earbuds",
-
+      images: [
+        "https://m.media-amazon.com/images/I/61GJAFdM9pL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51lgV-3qMLL._SL1080_.jpg",
+        "https://m.media-amazon.com/images/I/61BbQ-2SsmL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/91jGlvzP2ZL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["Best ANC", "LDAC", "Premium"],
@@ -1521,7 +1574,12 @@ const productData = {
       id: "sony-wh-1000xm6",
       brand: "Sony",
       name: "WH-1000XM6 Headphones",
-
+      images:[
+        "https://m.media-amazon.com/images/I/61ddahpESML._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81sjq7kP3cL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81ZbWmi2JmL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81ZbWmi2JmL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["Top ANC", "LDAC", "Premium"],
@@ -1535,7 +1593,12 @@ const productData = {
       id: "bose-700",
       brand: "Bose",
       name: "Noise Cancelling 700",
-
+      images: [
+        "https://m.media-amazon.com/images/I/51ovuAC+fML._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61aMDnFIzJL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61spVc528hL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61Lb8R0fx3L._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["Premium ANC", "Bose", "Headphones"],
@@ -1549,7 +1612,12 @@ const productData = {
       id: "airpods-pro-2",
       brand: "Apple",
       name: "AirPods Pro 2nd Gen",
-
+      images: [
+        "https://m.media-amazon.com/images/I/2110TEYPKnL._SY300_SX300_QL70_FMwebp_.jpg",
+        "https://m.media-amazon.com/images/I/61sRKTAfrhL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51emillNpWL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51+vJkbGtJL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["ANC", "Spatial", "USB-C"],
@@ -1563,7 +1631,10 @@ const productData = {
       id: "sennheiser-momentum-3",
       brand: "Sennheiser",
       name: "Momentum TWS 3",
-
+      images: [
+        "https://m.media-amazon.com/images/I/61gzuUoAngL._SL1280_.jpg",
+        "https://m.media-amazon.com/images/I/91rx5dcY-8L._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["Audiophile", "ANC", "Premium"],
@@ -1577,7 +1648,11 @@ const productData = {
       id: "jbl-tour-pro-2",
       brand: "JBL",
       name: "Tour Pro 2 Earbuds",
-
+      images:[
+        "https://m.media-amazon.com/images/I/61YzT5m79RL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71pVchR-BXL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71N8YAjMXKL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["Smart Case", "ANC", "JBL"],
@@ -1591,7 +1666,12 @@ const productData = {
       id: "beats-studio-pro",
       brand: "Beats",
       name: "Studio Pro Wireless",
-
+      images: [
+        "https://m.media-amazon.com/images/I/51V8-16lsTL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51V8-16lsTL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/613IIRZyQyL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/613IIRZyQyL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["ANC", "40hr", "USB-C"],
