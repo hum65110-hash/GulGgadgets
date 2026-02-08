@@ -1224,8 +1224,12 @@ const productData = {
       id: "galaxy-watch8-classic",
       brand: "Samsung",
       name: "Galaxy Watch8 Classic",
-      image:
-        "https://images.samsung.com/is/image/samsung/p6pim/in/f2507/gallery/in-galaxy-watch8-l320-sm-l320nzsains-547660098?$Q90_1920_1280_F_PNG$",//
+     images: [
+      "https://m.media-amazon.com/images/I/81JhHZ4XSpL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71rM-tQ2+pL._SL1080_.jpg",
+      "https://m.media-amazon.com/images/I/61X+7CDYSnL._SL1080_.jpg",
+      "https://m.media-amazon.com/images/I/61-HaMWxM2L._SL1080_.jpg"
+     ],
       variants: [
         {
           specs: ["AMOLED", "GPS", "Health"],
@@ -1266,8 +1270,12 @@ const productData = {
       id: "galaxy-watch8-standard",
       brand: "Samsung",
       name: "Galaxy Watch8 Standard",
-      image:
+      images: [
         "https://images.samsung.com/in/galaxy-watch8/feature/galaxy-watch8-design-colors-silver-perspective.jpg?imbypass=true",
+        "https://m.media-amazon.com/images/I/61qTH6YGoCL._SL1080_.jpg",
+        "https://m.media-amazon.com/images/I/61nOam0lG8L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/51-IPzS2GjL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["AMOLED", "GPS", "Health"],
@@ -1280,8 +1288,12 @@ const productData = {
       id: "titan-celestor-2",
       brand: "Titan",
       name: "Celestor 2.0 Smartwatch",
-      image:
-        "https://images.unsplash.com/photo-1510017803434-a899398421b3?w=400&h=300&fit=crop",
+      images: [
+        "https://m.media-amazon.com/images/I/71G-4qxEQIL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81YT6nsm1kL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81htfE10lNL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71ZMuxXYI8L._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["Hybrid", "GPS", "Indian"],
@@ -1294,8 +1306,12 @@ const productData = {
       id: "moto-watch",
       brand: "Motorola",
       name: "Moto Watch",
-      image:
-        "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=400&h=300&fit=crop",
+      images: [
+        "https://m.media-amazon.com/images/I/71ZUibeqWJL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71ZUibeqWJL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61Ltcl5NiXL._SL1000_.jpg",
+        "https://m.media-amazon.com/images/I/61Ltcl5NiXL._SL1000_.jpg"
+      ],
       variants: [
         {
           specs: ["AMOLED", "Fitness", "Budget"],
@@ -1308,8 +1324,12 @@ const productData = {
       id: "amazfit-active-max",
       brand: "Amazfit",
       name: "Active Max Smartwatch",
-      image:
-        "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400&h=300&fit=crop",
+      images: [
+        "https://m.media-amazon.com/images/I/61eLhGc40TL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/614IAS3eV-L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/614IAS3eV-L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/612JmBp0PVL._SL1500_.jpg"
+      ],
       variants: [
         {
           specs: ["AMOLED", "GPS", "Active"],
@@ -1322,8 +1342,13 @@ const productData = {
       id: "amazfit-trex-3-pro",
       brand: "Amazfit",
       name: "T-Rex 3 Pro Smartwatch",
-      image:
-        "https://images.unsplash.com/photo-1617043786394-f977fa12eddf?w=400&h=300&fit=crop",
+      images:[
+        "https://m.media-amazon.com/images/I/71qMhhNEdSL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71nwhpzWf7L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71nwhpzWf7L._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/815ROrXXCeL._SL1500_.jpg"
+      ],
+        
       variants: [
         {
           specs: ["Rugged", "GPS", "Pro"],
@@ -1336,8 +1361,13 @@ const productData = {
       id: "apple-watch-series-10",
       brand: "Apple",
       name: "Apple Watch Series 10 GPS",
-      image:
-        "https://m.media-amazon.com/images/I/81kq5wkaqAL._AC_UF1000,1000_QL80_.jpg",
+      images:[
+        "https://m.media-amazon.com/images/I/81kq5wkaqAL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71uRfemJCPL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/713d1BUBGnL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/817-UzcCLWL._SL1500_.jpg"
+      ],
+        
       variants: [
         {
           specs: ["GPS", "OLED", "watchOS"],
@@ -1350,8 +1380,13 @@ const productData = {
       id: "pixel-watch-4",
       brand: "Google",
       name: "Pixel Watch 4",
-      image:
-        "https://images-cdn.ubuy.co.in/68b1920f44067f64cc072447-google-pixel-watch-4-41-mm-android.jpg",
+      image:[
+        "https://m.media-amazon.com/images/I/61pb7N4RItL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/814J6RaUKoL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71TiuMyJFXL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81ebhM9zBFL._SL1500_.jpg"
+      ],
+        
       variants: [
         {
           specs: ["Wear OS", "GPS", "Fitbit"],
