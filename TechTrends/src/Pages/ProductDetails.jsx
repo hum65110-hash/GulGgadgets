@@ -104,7 +104,11 @@ export default function ProductDetails() {
         category: product.category,
         name: product.name,
         brand: product.brand,
-        image: product.image,
+        image:
+  product.images?.[0] ||
+  product.image ||
+  "",
+
         specs: variant.specs,
         price: variant.price,
         numericPrice: variant.numericPrice,
