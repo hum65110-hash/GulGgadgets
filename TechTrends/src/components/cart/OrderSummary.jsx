@@ -159,12 +159,39 @@ export default function OrderSummary() {
         Checkout
       </button>
 
+      
+
       {/* Checkout Modal */}
       <CheckoutModal
         open={openCheckout}
         onClose={() => setOpenCheckout(false)}
         total={total}
       />
+{/* COD Disclaimer Infobox */}
+<div
+  className="
+    flex gap-3 items-start
+    rounded-lg p-3
+    bg-blue-500/10
+    border border-blue-500/20
+    text-blue-100
+    text-xs md:text-sm
+    leading-relaxed
+  "
+>
+
+  <span className="material-symbols-outlined text-[18px] mt-[2px]">
+    info
+  </span>
+
+  <p>
+    Delivery fees must be paid online. Remaining amount will be collected via{" "}
+    <span className="font-semibold text-primary">
+      Cash on Delivery (COD)
+    </span>.
+  </p>
+
+</div>
 
       <p className="text-xs text-text-muted-light flex justify-center gap-1">
 
