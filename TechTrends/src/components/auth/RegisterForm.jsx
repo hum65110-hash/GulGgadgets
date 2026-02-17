@@ -13,7 +13,7 @@ function InputField({
   onChange,
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex text-white flex-col gap-2">
       <label htmlFor={id}>
         {label}
       </label>
@@ -105,7 +105,7 @@ export default function RegisterForm() {
       {/* PASSWORD */}
       <div className="flex flex-col gap-2">
 
-        <label className="text-sm font-medium ml-1">
+        <label className="text-sm text-white font-medium ml-1">
           Password
         </label>
 
@@ -141,7 +141,7 @@ export default function RegisterForm() {
 
       <button
         type="submit"
-        className="mt-4 h-12 rounded-xl bg-primary font-bold"
+        className="mt-4 h-12 text-white rounded-xl bg-primary font-bold"
       >
         Create Account
       </button>

@@ -91,7 +91,7 @@ export default function Home() {
 
             {/* HERO IMAGE */}
             <div
-              className="aspect-[4/3] rounded-2xl bg-cover bg-center hover:scale-105 transition"
+              className="aspect-[4/3] rounded-2xl bg-cover bg-center transition"
               style={{
                 backgroundImage: "url(/hero.jpg)",
               }}

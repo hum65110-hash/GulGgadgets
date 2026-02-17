@@ -62,9 +62,9 @@ export default function LoginForm() {
 
       <button
         type="submit"
-        className="h-12 rounded-lg bg-primary font-bold"
+        className="h-12 rounded-lg text-white bg-primary font-bold"
       >
-        Sign In
+        Log In
       </button>
     </form>
   );

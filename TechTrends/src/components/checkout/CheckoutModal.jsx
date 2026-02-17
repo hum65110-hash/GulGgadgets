@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import api from "../../api/client";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function CheckoutModal({ open, onClose, total }) {
   if (!open) return null;
+  const navigate = useNavigate();
+
 
   // ==============================
   // 💥 FAILURE STATE
@@ -66,7 +72,11 @@ export default function CheckoutModal({ open, onClose, total }) {
       }, 700);
     } catch (err) {
       console.error(err);
-      setShowFailure(true);
+      // setShowFailure(true);
+      toast.error("You are not logged in!");
+      setTimeout(() => {
+        navigate("/login");
+      }, 1500);
     }
   };
 
@@ -260,8 +270,8 @@ export default function CheckoutModal({ open, onClose, total }) {
               type="submit"
               disabled={!isValid}
               className={`w-full py-4 rounded-lg font-bold text-white ${isValid
-                  ? "bg-primary"
-                  : "bg-gray-500 cursor-not-allowed"
+                ? "bg-primary"
+                : "bg-gray-500 cursor-not-allowed"
                 }`}
             >
               Pay shipping fee 149 only

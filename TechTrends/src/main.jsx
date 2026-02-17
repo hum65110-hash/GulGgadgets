@@ -9,7 +9,13 @@ import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <Toaster position="top-right" />
+    <Toaster
+      position="top-right"
+      containerStyle={{
+        zIndex: 99999,
+      }}
+    />
+
     <App />
   </BrowserRouter>
 );

@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SocialLogin from "./SocialLogin";
 
+
 export default function LoginCard() {
+  const navigate = useNavigate()
   return (
     <section
       className="relative z-10 w-full max-w-[480px] rounded-2xl p-8 md:p-10 flex flex-col gap-6 border backdrop-blur-xl"
@@ -14,7 +17,7 @@ export default function LoginCard() {
       {/* Header */}
       <header className="text-center space-y-2">
 
-        <h1 className="text-3xl font-bold tracking-tight">
+        <h1 className="text-3xl text-white font-bold tracking-tight">
           Welcome Back
         </h1>
 
@@ -39,9 +42,10 @@ export default function LoginCard() {
 
       <p className="text-center text-xs text-text-muted-light">
         Don’t have an account?{" "}
-        <a className="text-white font-medium hover:underline">
+        <span onClick={()=>navigate('/register')}
+         className="text-white font-medium cursor-pointer hover:underline">
           Sign up for free
-        </a>
+        </span>
       </p>
 
     </section>

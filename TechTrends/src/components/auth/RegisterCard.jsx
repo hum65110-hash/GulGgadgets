@@ -14,7 +14,7 @@ export default function RegisterCard() {
           </span>
         </div>
 
-        <h1 className="text-[32px] font-bold">
+        <h1 className="text-[32px] text-white font-bold">
           Create Account
         </h1>
 

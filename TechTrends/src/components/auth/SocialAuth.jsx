@@ -20,11 +20,11 @@ export default function SocialAuth() {
       {/* Buttons */}
       <div className="mt-6 grid grid-cols-2 gap-4">
 
-        <button className="flex items-center justify-center gap-3 rounded-xl bg-[#192833] px-3 py-2.5 ring-1 ring-[#325167] hover:bg-[#233948]">
+        <button className="flex items-center text-white justify-center gap-3 rounded-xl bg-[#192833] px-3 py-2.5 ring-1 ring-[#325167] hover:bg-[#233948]">
           Google
         </button>
 
-        <button className="flex items-center justify-center gap-3 rounded-xl bg-[#192833] px-3 py-2.5 ring-1 ring-[#325167] hover:bg-[#233948]">
+        <button className="flex items-center text-white justify-center gap-3 rounded-xl bg-[#192833] px-3 py-2.5 ring-1 ring-[#325167] hover:bg-[#233948]">
           GitHub
         </button>
 
